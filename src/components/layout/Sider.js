@@ -1,30 +1,29 @@
-import React from "react";
-import { Box, Button, Text } from "grommet";
+import React from 'react';
+import { Box, Button, Text } from 'grommet';
 
-import styles from "./styles";
-import logo from "../../images/logo.png";
+import styles from './styles';
+import logo from '../../assets/logo.png';
 
-const App = () => (
+const Sidebar = () => (
   <>
-    <Box
-      gridArea="sidebar"
-      background="#9D52CC"
-      width="small"
-      style={styles.sider}
-    >
+    <Box gridArea="sidebar" width="15em" style={styles.sider}>
       <Box style={styles.logobox}>
         <Box style={styles.logo}>
           <img
             src={logo}
             alt="logo"
-            style={{ width: "100%", objectFit: "none" }}
+            style={{ width: '100%', objectFit: 'none' }}
           />
         </Box>
+        <Text color="white" style={styles.adminText}>
+          Admin
+        </Text>
       </Box>
-      {["Dashboard", "Candidates", "Camps"].map(name => (
+      <hr style={{ width: '100%', border: '0.5px solid #fff' }} />
+      {['Dashboard', 'Candidates', 'Camps'].map(name => (
         <Button key={name} href="#" hoverIndicator>
-          <Box pad={{ horizontal: "medium", vertical: "small" }}>
-            <Text>{name}</Text>
+          <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
+            <Text color="#fff">{name}</Text>
           </Box>
         </Button>
       ))}
@@ -32,4 +31,4 @@ const App = () => (
   </>
 );
 
-export default App;
+export default Sidebar;
