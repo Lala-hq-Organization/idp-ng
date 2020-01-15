@@ -1,16 +1,16 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Loading from "./components/Loading";
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Loading from './components/Loading';
 
 // const Play = lazy(() => import('./components/Play'));
-const Layout = lazy(() => import("./components/layout/Layout"));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
 
 const App = () => (
   <BrowserRouter>
     <Suspense fallback={<Loading />}>
       <Switch>
         <Route path="/">
-          <Layout />
+          <Dashboard />
         </Route>
       </Switch>
     </Suspense>
