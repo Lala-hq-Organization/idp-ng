@@ -1,11 +1,13 @@
 import React from "react";
 
-import { Grommet, Box, Button, Grid, Text } from "grommet";
+import { Grommet, Box, Grid, Text } from "grommet";
 import { grommet } from "grommet/themes";
+import { Notification, StatusUnknown } from "grommet-icons";
 
 import styles from "./styles";
+import Sider from "./Sider";
 
-const App = () => {
+const App = props => {
   return (
     <Grommet full theme={grommet}>
       <Grid
@@ -23,29 +25,30 @@ const App = () => {
           direction="row"
           align="center"
           justify="between"
-          pad={{ horizontal: "medium", vertical: "small" }}
-          background="dark-2"
+          pad={{ horizontal: "medium", vertical: "medium" }}
+          background="#F7F4FF"
           style={styles.header}
         >
-          <Text>my@email</Text>
+          <Box>
+            <Text>Header Name</Text>
+          </Box>
+
+          <Box>
+            <Text>Header Name</Text>
+          </Box>
+
+          <Box direction="row">
+            <Notification color="plain" />
+            <Box width="xxsmall"></Box>
+            <StatusUnknown color="plain" />
+            <Box width="xxsmall"></Box>
+            <Text>Logout</Text>
+          </Box>
         </Box>
 
-        <Box
-          gridArea="sidebar"
-          background="#9D52CC"
-          width="small"
-          style={styles.sider}
-        >
-          {["Dashboard", "Candidates", "Camps"].map(name => (
-            <Button key={name} href="#" hoverIndicator>
-              <Box pad={{ horizontal: "medium", vertical: "small" }}>
-                <Text>{name}</Text>
-              </Box>
-            </Button>
-          ))}
-        </Box>
+        <Sider />
         <Box gridArea="main" justify="center" align="center">
-          <Text>main</Text>
+          {props.children}
         </Box>
       </Grid>
     </Grommet>

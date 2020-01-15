@@ -1,7 +1,9 @@
 const styles = {
   header: {
     position: "absolute",
-    width: "100%"
+    width: "100%",
+    "box-shadow": "5px 5px 5px #c7c7c7",
+    "margin-right": "50%"
   },
   sider: {
     position: "relative",
