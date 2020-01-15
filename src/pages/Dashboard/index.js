@@ -4,6 +4,8 @@ import GridLayout from '../../components/layout/Layout';
 
 import { styles } from './styles';
 
+import DashCard from './DashCards';
+
 export default function Dashboard() {
   return (
     <GridLayout>
@@ -11,9 +13,9 @@ export default function Dashboard() {
         style={styles.container}
         direction="column"
         pad="small"
-        background="dark-3"
+        background="transparent"
       >
-        Main Content
+        <DashCard />
       </Box>
     </GridLayout>
   );
