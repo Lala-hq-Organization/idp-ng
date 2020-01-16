@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Image } from 'grommet';
 
-import { styles } from './styles';
-import thumbnail from '../../assets/cute-774909@2x.png';
+import { styles } from '../styles';
+import thumbnail from '../../../assets/cute-774909@2x.png';
 
 export default function LeftSection() {
   return (

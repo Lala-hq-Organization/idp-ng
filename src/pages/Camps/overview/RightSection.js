@@ -5,7 +5,7 @@ import { grommet } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 
 import { columns, DATA } from './data';
-import { styles } from './styles';
+import { styles } from '../styles';
 
 const theme = deepMerge(grommet, {
   tab: {
