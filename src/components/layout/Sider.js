@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png';
 
 const Sidebar = () => (
   <>
-    <Box gridArea="sidebar" width="15em" style={styles.sider}>
+    <Box gridArea="sidebar" width="17em" style={styles.sider}>
       <Box style={styles.logobox}>
         <Box style={styles.logo}>
           <img

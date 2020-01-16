@@ -6,8 +6,10 @@ import { Notification, StatusUnknown } from 'grommet-icons';
 
 import styles from './styles';
 import Sider from './Sider';
+import './layout.css';
 
 const App = props => {
+  console.log(props.children);
   return (
     <Grommet full theme={grommet}>
       <Grid
@@ -20,7 +22,7 @@ const App = props => {
         ]}
       >
         <Sider />
-        <Box gridArea="main">
+        <Box gridArea="main" className="innerBox">
           <Box
             direction="row"
             align="center"
@@ -45,11 +47,11 @@ const App = props => {
               <Text>Logout</Text>
             </Box>
           </Box>
-          <Box
+          {/* <Box
             background="#F7F4FF"
             height="30%"
             style={{ position: 'relative' }}
-          ></Box>
+          ></Box> */}
           {props.children}
         </Box>
       </Grid>
