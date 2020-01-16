@@ -1,0 +1,10 @@
+.innerBox {
+  position: relative;
+}
+.innerBox:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background-color: #f7f4ff;
+}

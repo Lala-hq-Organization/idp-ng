@@ -4,6 +4,7 @@ import Loading from './components/Loading';
 
 // const Play = lazy(() => import('./components/Play'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Candidates = lazy(() => import('./components/candidates/CandidateTable'));
 
 const App = () => (
   <BrowserRouter>
@@ -11,6 +12,9 @@ const App = () => (
       <Switch>
         <Route path="/">
           <Dashboard />
+        </Route>
+        <Route path="/candidates">
+          <Candidates />
         </Route>
       </Switch>
     </Suspense>

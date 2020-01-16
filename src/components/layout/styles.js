@@ -2,7 +2,8 @@ const styles = {
   header: {
     boxShadow: '0px 3px 6px #00000029',
     paddingLeft: '3em',
-    paddingRight: '3em'
+    paddingRight: '3em',
+    zIndex: 3
   },
   sider: {
     position: 'relative',
@@ -30,6 +31,16 @@ const styles = {
     fontSize: '23px',
     textAlign: 'center',
     marginTop: '1em'
+  },
+  innerBox: {
+    position: 'relative',
+    ':before': {
+      content: '',
+      position: 'absolute',
+      width: '100%',
+      height: '30%',
+      backgroundColor: '#f7f4ff'
+    }
   }
 };
 
