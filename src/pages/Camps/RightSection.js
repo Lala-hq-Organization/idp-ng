@@ -1,20 +1,10 @@
 import React from 'react';
-import {
-  Box,
-  Tabs,
-  Tab,
-  Table,
-  TableHeader,
-  TableBody,
-  TableRow,
-  TableCell,
-  Text,
-  Grommet
-} from 'grommet';
+import { Box, Tabs, Tab, DataTable, Grommet } from 'grommet';
 
 import { grommet } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 
+import { columns, DATA } from './data';
 import { styles } from './styles';
 
 const theme = deepMerge(grommet, {
@@ -32,46 +22,46 @@ export default function RightSection() {
     <Box style={styles.secondBox}>
       <Grommet theme={theme}>
         <Tabs style={{ width: '100%' }} activeIndex={index} onActive={onActive}>
-          <Tab
-            // plain={true}
-            title="Candidates"
-            style={{ marginRight: '1em', color: 'red' }}
-          >
+          <Tab title="Candidates" style={{ marginRight: '1em', color: 'red' }}>
             <Box>
               <h2>This is a summary of candidates in this camp</h2>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    {header.map(h => (
-                      <TableCell key={h} scope="col" align="center">
-                        <Text>{h}</Text>
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                {/* <TableBody>
-                {data.map(datum => (
-                  <TableRow key={datum.id}>
-                    {columns.map(c => (
-                      <TableCell
-                        key={c.property}
-                        scope={c.dataScope}
-                        align={c.align}
-                      >
-                        <Text>
-                          {c.format ? c.format(datum) : datum[c.property]}
-                        </Text>
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody> */}
-              </Table>
+              <DataTable
+                columns={columns}
+                data={DATA}
+                step={5}
+                pad={{ horizontal: 'small', vertical: 'small' }}
+                background={{
+                  header: '#fff',
+                  body: ['#fff', '#F4F6F8']
+                }}
+                border={{
+                  header: {
+                    color: '#fff',
+                    side: 'bottom'
+                  }
+                }}
+              />
             </Box>
           </Tab>
           <Tab title="Families">
             <Box>
               <h2>This is a summary of families in this camp</h2>
+              <DataTable
+                columns={columns}
+                data={DATA}
+                step={5}
+                pad={{ horizontal: 'small', vertical: 'small' }}
+                background={{
+                  header: '#fff',
+                  body: ['#fff', '#F4F6F8']
+                }}
+                border={{
+                  header: {
+                    color: '#fff',
+                    side: 'bottom'
+                  }
+                }}
+              />
             </Box>
           </Tab>
         </Tabs>
@@ -79,5 +69,3 @@ export default function RightSection() {
     </Box>
   );
 }
-
-const header = ['Name', 'Gender', 'Age Group', 'Date added'];
