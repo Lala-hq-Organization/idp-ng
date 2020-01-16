@@ -51,7 +51,12 @@ const Card = styled.div`
   width: 14em;
   height: 7em;
   padding: 1rem;
-  background: cornflowerblue;
+  background: rgb(4, 202, 251);
+  background: linear-gradient(
+    150deg,
+    rgba(4, 202, 251, 1) 0%,
+    rgba(54, 128, 215, 1) 90%
+  );
   color: #fff;
   box-shadow: 0 1px 3px 0 cornflowerblue, 0 0 0 1px cornflowerblue;
   border-radius: 14px;
