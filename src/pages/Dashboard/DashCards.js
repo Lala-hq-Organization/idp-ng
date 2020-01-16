@@ -5,7 +5,7 @@ import { LineChart, BarChart } from 'grommet-icons';
 
 export default function DashCard() {
   return (
-    <Box direction="row-responsive">
+    <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
       <Card>
         <div>
           <Title>total candidates</Title>

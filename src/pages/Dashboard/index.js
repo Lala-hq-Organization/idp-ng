@@ -5,6 +5,7 @@ import GridLayout from '../../components/layout/Layout';
 import { styles } from './styles';
 
 import DashCard from './DashCards';
+import Charts from './Charts';
 
 export default function Dashboard() {
   return (
@@ -12,10 +13,11 @@ export default function Dashboard() {
       <Box
         style={styles.container}
         direction="column"
-        pad="small"
+        pad="medium"
         background="transparent"
       >
         <DashCard />
+        <Charts />
       </Box>
     </GridLayout>
   );
