@@ -11,6 +11,7 @@ export default function Dashboard() {
   return (
     <GridLayout>
       <Box
+        name="Dashboard"
         style={styles.container}
         direction="column"
         pad="medium"

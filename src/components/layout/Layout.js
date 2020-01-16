@@ -9,7 +9,6 @@ import Sider from './Sider';
 import './layout.css';
 
 const App = props => {
-  console.log(props.children);
   return (
     <Grommet full theme={grommet}>
       <Grid
@@ -35,7 +34,9 @@ const App = props => {
               <Text
                 style={{ color: '#4D4F5C', fontWeight: 600, fontSize: '23px' }}
               >
-                Camps
+                {props.children.props !== undefined
+                  ? props.children.props.name
+                  : 'Page Header'}
               </Text>
             </Box>
 
@@ -47,11 +48,6 @@ const App = props => {
               <Text>Logout</Text>
             </Box>
           </Box>
-          {/* <Box
-            background="#F7F4FF"
-            height="30%"
-            style={{ position: 'relative' }}
-          ></Box> */}
           {props.children}
         </Box>
       </Grid>
