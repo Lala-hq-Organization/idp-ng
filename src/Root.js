@@ -4,17 +4,21 @@ import Loading from './components/Loading';
 
 // const Play = lazy(() => import('./components/Play'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Camps = lazy(() => import('./pages/Camps'));
 const Candidates = lazy(() => import('./components/candidates/CandidateTable'));
 
 const App = () => (
   <BrowserRouter>
     <Suspense fallback={<Loading />}>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Dashboard />
         </Route>
         <Route path="/candidates">
           <Candidates />
+        </Route>
+        <Route path="/camps">
+          <Camps />
         </Route>
       </Switch>
     </Suspense>
