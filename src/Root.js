@@ -17,7 +17,7 @@ const App = () => (
         <Route path="/candidates">
           <Candidates />
         </Route>
-        <Route path="/camps">
+        <Route exact path="/camps">
           <Camps />
         </Route>
       </Switch>
