@@ -1,6 +1,9 @@
 import React from 'react';
 import { Box, Button, Text } from 'grommet';
 
+import { withRouter, Link } from 'react-router-dom';
+import list from './list';
+
 import styles from './styles';
 import logo from '../../assets/logo.png';
 
@@ -20,15 +23,17 @@ const Sidebar = () => (
         </Text>
       </Box>
       <hr style={{ width: '100%', border: '0.5px solid #fff' }} />
-      {['Dashboard', 'Candidates', 'Camps'].map(name => (
-        <Button key={name} href="#" hoverIndicator>
-          <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
-            <Text color="#fff">{name}</Text>
-          </Box>
-        </Button>
+      {list.map(item => (
+        <Link to={Object.values(item)[0]}>
+          <Button key={Object.keys(item)[0]} hoverIndicator>
+            <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
+              <Text color="#fff">{Object.keys(item)[0]}</Text>
+            </Box>
+          </Button>
+        </Link>
       ))}
     </Box>
   </>
 );
 
-export default Sidebar;
+export default withRouter(Sidebar);
