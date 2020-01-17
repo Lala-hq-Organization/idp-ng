@@ -1,187 +1,101 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, DataTable, Text, Meter } from 'grommet';
+import { Box, DataTable } from 'grommet';
 
+import { DATA, columns, individualColumns, DATA2 } from './fakeData';
 import Layout from '../layout/Layout';
 import styles from './styles';
+import Filter from './Filter';
+import ElaborateFilter from './ElaborateFilter';
+import Button from './Button';
 
-export const Avatar = ({ ...rest }) => (
-  <Box
-    height="xxsmall"
-    width="xxsmall"
-    round="full"
-    background="url(//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80)"
-    {...rest}
-  />
-);
-
-const columns = [
-  {
-    property: 'name',
-    header: (
-      <Text size="small" color="#8898AA">
-        NAME
-      </Text>
-    ),
-    primary: true
-  },
-  {
-    property: 'Date',
-    header: (
-      <Text size="small" color="#8898AA">
-        DATE ADDED
-      </Text>
-    )
-  },
-  {
-    property: 'State',
-    header: (
-      <Text size="small" color="#8898AA">
-        STATE
-      </Text>
-    )
-  },
-  {
-    property: 'Number',
-    header: (
-      <Text size="small" color="#8898AA">
-        NUMBER
-      </Text>
-    )
-  },
-  {
-    property: 'Children',
-    header: (
-      <Text size="small" color="#8898AA">
-        CHILDREN
-      </Text>
-    )
+const Candidates = () => {
+  const [currentTable, setCurrentTable] = useState(DATA);
+  const [currentColumn, setCurrentColumn] = useState(columns);
+  const [displayFilters, setDisplayFilters] = useState(false);
+  function setIndividualTable() {
+    setCurrentTable(DATA2);
+    setCurrentColumn(individualColumns);
   }
-];
-const DATA = [
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '356',
-    State: '16',
-    Number: '49',
-    Children: 25
-  },
-  {
-    name: (
-      <>
-        <Box direction="row">
-          <Avatar />
-          GingerBread
-        </Box>
-      </>
-    ),
-    Date: '159',
-    State: '6',
-    Number: '24',
-    Children: 72
-  },
-  {
-    name: (
-      <>
-        <Box direction="row">
-          <Avatar />
-          GingerBread
-        </Box>
-      </>
-    ),
-    Date: '205',
-    State: '32',
-    Number: '43',
-    Children: 31
-  },
-  {
-    name: (
-      <>
-        <Box direction="row">
-          <Avatar />
-          GingerBread
-        </Box>
-      </>
-    ),
-    Date: '150',
-    State: '10',
-    Number: '12',
-    Children: 95
-  },
-  {
-    name: (
-      <>
-        <Box direction="row">
-          <Avatar />
-          GingerBread
-        </Box>
-      </>
-    ),
-    State: '160',
-    Date: '0',
-    Number: '41',
-    Children: 10
-  },
-  {
-    name: (
-      <>
-        <Box direction="row">
-          <Avatar />
-          GingerBread
-        </Box>
-      </>
-    ),
-    State: '210',
-    Date: '0',
-    Number: '28',
-    Children: 40
+
+  function setFamilyTable() {
+    setCurrentTable(DATA);
+    setCurrentColumn(columns);
   }
-];
-
-const Candidates = () => (
-  <Layout>
-    <Box align="center" pad={{ vertical: 'large' }} style={styles.mainDiv}>
-      <Box style={styles.table}>
-        <Box
-          direction="row"
-          width="100%"
-          justify="between"
-          style={styles.header}
-        >
-          <Box direction="row" width="20%" justify="between">
-            <Box>yes</Box>
-            <Box>No</Box>
-          </Box>
-          <Box>Never</Box>
-        </Box>
-
-        <Box>
-          <DataTable
-            style={styles.tableStyle}
-            columns={columns}
-            data={DATA}
-            step={7}
-            pad={{
-              body: { horizontal: 'large', vertical: 'medium' },
-              header: { horizontal: 'medium', vertical: 'xsmall' }
-            }}
-            background={{
-              header: '#F1F3F9',
-              body: ['#FFFFFF', '#F7FAFC'],
-              footer: 'dark-3'
-            }}
-            border={{ body: 'bottom' }}
-            rowProps={{ Eric: { background: 'accent-2', pad: 'large' } }}
+  function handleFilterDisplay() {
+    setDisplayFilters(!displayFilters);
+  }
+  return (
+    <Layout>
+      <Box
+        align="center"
+        pad={{ vertical: 'small' }}
+        style={styles.mainDiv}
+        name="Candidates"
+      >
+        {displayFilters ? (
+          <ElaborateFilter handleFilterDisplay={handleFilterDisplay} />
+        ) : (
+          <Filter
+            align="center"
+            justify="start"
+            pad="large"
+            style={styles.filter}
+            handleFilterDisplay={handleFilterDisplay}
           />
+        )}
+        <Box style={styles.table}>
+          <Box
+            direction="row"
+            width="100%"
+            justify="between"
+            style={styles.header}
+          >
+            <Box direction="row" justify="between" style={styles.btnBox}>
+              <Button
+                boxStyle={styles.individuals}
+                handleButton={setIndividualTable}
+                textStyle={styles.individualsText}
+                text="Individuals"
+              />
+              <Button
+                boxStyle={styles.families}
+                handleButton={setFamilyTable}
+                textStyle={styles.familyText}
+                text="Families"
+              />
+            </Box>
+            <Button
+              boxStyle={styles.exportData}
+              // handleButton={setFamilyTable}
+              textStyle={styles.exportDataText}
+              text="Export Data"
+            />
+          </Box>
+
+          <Box>
+            <DataTable
+              style={styles.tableStyle}
+              columns={currentColumn}
+              data={currentTable}
+              pad={{
+                body: { horizontal: 'large', vertical: 'medium' },
+                header: { horizontal: 'large', vertical: 'xsmall' }
+              }}
+              step={4}
+              background={{
+                header: '#F1F3F9',
+                body: ['#F7FAFC', '#FFFFFF'],
+                footer: 'dark-3'
+              }}
+              border={{ body: 'bottom' }}
+              rowProps={{ Eric: { background: 'accent-2', pad: 'large' } }}
+            />
+          </Box>
         </Box>
       </Box>
-    </Box>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default Candidates;

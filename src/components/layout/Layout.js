@@ -26,26 +26,26 @@ const App = props => {
             direction="row"
             align="center"
             justify="between"
-            pad={{ horizontal: 'medium', vertical: 'medium' }}
+            pad={{ horizontal: 'medium', vertical: 'large' }}
             background="#F7F4FF"
             style={styles.header}
           >
             <Box>
-              <Text
-                style={{ color: '#4D4F5C', fontWeight: 600, fontSize: '23px' }}
-              >
+              <Text style={styles.pageHeaderText}>
                 {props.children.props !== undefined
                   ? props.children.props.name
                   : 'Page Header'}
               </Text>
             </Box>
 
-            <Box direction="row">
-              <Notification color="plain" />
+            <Box direction="row" align="end">
+              <Notification color="#683687" size="medium" />
               <Box width="xxsmall"></Box>
-              <StatusUnknown color="plain" />
+              <StatusUnknown color="#683687" />
               <Box width="xxsmall"></Box>
-              <Text>Logout</Text>
+              <Text color="#60317C" size="2rem">
+                Logout
+              </Text>
             </Box>
           </Box>
           {props.children}

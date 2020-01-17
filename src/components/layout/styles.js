@@ -32,16 +32,7 @@ const styles = {
     textAlign: 'center',
     marginTop: '1em'
   },
-  innerBox: {
-    position: 'relative',
-    ':before': {
-      content: '',
-      position: 'absolute',
-      width: '100%',
-      height: '30%',
-      backgroundColor: '#f7f4ff'
-    }
-  }
+  pageHeaderText: { color: '#4D4F5C', fontWeight: 600, fontSize: '2.5em' }
 };
 
 export default styles;
