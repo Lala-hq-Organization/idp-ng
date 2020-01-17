@@ -64,10 +64,10 @@ const Card = styled.div`
   }
 `;
 
-const CustomButton = styled(Button)`
-  border-radius: 3px;
-  background: cornflowerblue;
-`;
+// const CustomButton = styled(Button)`
+//   border-radius: 3px;
+//   background: cornflowerblue;
+// `;
 
 const Title = styled.h3`
   margin-bottom: 0;

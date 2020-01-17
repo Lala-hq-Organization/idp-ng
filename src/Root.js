@@ -7,6 +7,7 @@ const Homepage = lazy(() => import('./pages/Homepage'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Camps = lazy(() => import('./pages/Camps'));
 const Candidates = lazy(() => import('./components/candidates/CandidateTable'));
+const Login = lazy(() => import('./components/Login/Login'));
 
 const App = () => (
   <BrowserRouter>
@@ -23,6 +24,9 @@ const App = () => (
         </Route>
         <Route exact path="/camps">
           <Camps />
+        </Route>
+        <Route exact path="/login">
+          <Login />
         </Route>
       </Switch>
     </Suspense>
