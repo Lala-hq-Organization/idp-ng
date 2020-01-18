@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loading from './components/Loading';
-
-// const Play = lazy(() => import('./components/Play'));
+// import ProtectedRoutes from './components/protectedRoutes/';
 const Homepage = lazy(() => import('./pages/Homepage'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Camps = lazy(() => import('./pages/Camps'));
@@ -16,6 +15,10 @@ const App = () => (
         <Route exact path="/">
           <Homepage />
         </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        {/* <ProtectedRoutes> */}
         <Route path="/dashboard">
           <Dashboard />
         </Route>
@@ -25,9 +28,7 @@ const App = () => (
         <Route exact path="/camps">
           <Camps />
         </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
+        {/* </ProtectedRoutes> */}
       </Switch>
     </Suspense>
   </BrowserRouter>
