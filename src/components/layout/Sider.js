@@ -12,11 +12,13 @@ const Sidebar = () => (
     <Box gridArea="sidebar" width="17em" style={styles.sider}>
       <Box style={styles.logobox}>
         <Box style={styles.logo}>
-          <img
-            src={logo}
-            alt="logo"
-            style={{ width: '100%', objectFit: 'none' }}
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: '100%', objectFit: 'none' }}
+            />
+          </Link>
         </Box>
         <Text color="white" style={styles.adminText}>
           Admin
