@@ -26,7 +26,7 @@ const Candidates = () => {
   function handleFilterDisplay() {
     setDisplayFilters(!displayFilters);
   }
-  console.log(size);
+
   return (
     <Layout>
       <Box

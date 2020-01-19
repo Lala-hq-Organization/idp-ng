@@ -25,6 +25,11 @@ export default function user(state = initialState, action) {
         data: {},
         isLoggedIn: false
       };
+    case 'SET_AUTH':
+      return {
+        ...state,
+        data: { ...state.data, ...action.payload }
+      };
     default:
       return state;
   }

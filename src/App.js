@@ -1,11 +1,14 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import ErrorBoundary from './ErrorBoundary';
+import React, { useEffect } from 'react';
+
 import { Grommet } from 'grommet';
 import { deepMerge } from 'grommet/utils';
 import { grommet } from 'grommet/themes';
+import { connect } from 'react-redux';
 
-import store from './store';
+import request from './request';
+import { authAction } from '../src/components/Login/login.action';
+import { clearErrorsAction } from '../src/components/data/data.action';
+
 import Root from './Root';
 
 const customBreakpoints = deepMerge(grommet, {
@@ -27,18 +30,24 @@ const customBreakpoints = deepMerge(grommet, {
   }
 });
 
-function App() {
+function App(props) {
+  useEffect(() => {
+    props.clearError();
+    props.auth(request);
+  }, [props]);
+
   return (
-    <ErrorBoundary>
-      <Provider store={store}>
-        <div className="App">
-          <Grommet theme={customBreakpoints}>
-            <Root />
-          </Grommet>
-        </div>
-      </Provider>
-    </ErrorBoundary>
+    <div className="App">
+      <Grommet theme={customBreakpoints}>
+        <Root />
+      </Grommet>
+    </div>
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  auth: authAction,
+  clearError: clearErrorsAction
+};
+
+export default connect(null, mapDispatchToProps)(App);
