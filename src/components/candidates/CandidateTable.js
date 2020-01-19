@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-
-import { Box, DataTable } from 'grommet';
+import React, { useState, useContext } from 'react';
+import { Box, DataTable, ResponsiveContext } from 'grommet';
 
 import { DATA, columns, individualColumns, DATA2 } from './fakeData';
 import Layout from '../layout/Layout';
@@ -8,8 +7,10 @@ import styles from './styles';
 import Filter from './Filter';
 import ElaborateFilter from './ElaborateFilter';
 import Button from './Button';
+import AlternateTableMenu from './AlternateTableMenu';
 
 const Candidates = () => {
+  const size = useContext(ResponsiveContext);
   const [currentTable, setCurrentTable] = useState(DATA);
   const [currentColumn, setCurrentColumn] = useState(columns);
   const [displayFilters, setDisplayFilters] = useState(false);
@@ -25,6 +26,7 @@ const Candidates = () => {
   function handleFilterDisplay() {
     setDisplayFilters(!displayFilters);
   }
+  console.log(size);
   return (
     <Layout>
       <Box
@@ -45,36 +47,44 @@ const Candidates = () => {
           />
         )}
         <Box style={styles.table}>
-          <Box
-            direction="row"
-            width="100%"
-            justify="between"
-            style={styles.header}
-          >
-            <Box direction="row" justify="between" style={styles.btnBox}>
+          {size === 'large' || size === 'medium' ? (
+            <Box
+              direction="row"
+              width="100%"
+              justify="between"
+              style={styles.header}
+            >
+              <Box direction="row" justify="between" style={styles.btnBox}>
+                <Button
+                  boxStyle={styles.individuals}
+                  handleButton={setIndividualTable}
+                  textStyle={styles.individualsText}
+                  text="Individuals"
+                />
+                <Button
+                  boxStyle={styles.families}
+                  handleButton={setFamilyTable}
+                  textStyle={styles.familyText}
+                  text="Families"
+                />
+              </Box>
               <Button
-                boxStyle={styles.individuals}
-                handleButton={setIndividualTable}
-                textStyle={styles.individualsText}
-                text="Individuals"
-              />
-              <Button
-                boxStyle={styles.families}
-                handleButton={setFamilyTable}
-                textStyle={styles.familyText}
-                text="Families"
+                boxStyle={styles.exportData}
+                // handleButton={setFamilyTable}
+                textStyle={styles.exportDataText}
+                text="Export Data"
               />
             </Box>
-            <Button
-              boxStyle={styles.exportData}
-              // handleButton={setFamilyTable}
-              textStyle={styles.exportDataText}
-              text="Export Data"
+          ) : (
+            <AlternateTableMenu
+              handleFamily={setFamilyTable}
+              handleIndividuals={setIndividualTable}
             />
-          </Box>
+          )}
 
-          <Box>
+          <Box style={{ display: 'block', width: '100%', overflowX: 'auto' }}>
             <DataTable
+              primaryKey="key"
               style={styles.tableStyle}
               columns={currentColumn}
               data={currentTable}
@@ -82,7 +92,6 @@ const Candidates = () => {
                 body: { horizontal: 'large', vertical: 'medium' },
                 header: { horizontal: 'large', vertical: 'xsmall' }
               }}
-              step={4}
               background={{
                 header: '#F1F3F9',
                 body: ['#F7FAFC', '#FFFFFF'],

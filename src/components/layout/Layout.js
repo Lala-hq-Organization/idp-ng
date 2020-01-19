@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { Grommet, Box, Grid, Text, ResponsiveContext } from 'grommet';
 import { grommet } from 'grommet/themes';
@@ -14,9 +14,6 @@ import './layout.css';
 
 const App = props => {
   const size = useContext(ResponsiveContext);
-  console.log(size);
-  const [sidebar, setSidebar] = useState(true);
-
   const handleLogout = () => {
     const navigateToLandingPage = () => props.history.push('/');
     props.logout(request, navigateToLandingPage);
@@ -45,7 +42,12 @@ const App = props => {
             {size === 'xsmall' ? <AlterbateMenu /> : null}
 
             <Box>
-              <Text style={styles.pageHeaderText}>
+              <Text
+                style={{
+                  ...styles.pageHeaderText,
+                  fontSize: size === 'xsmall' ? '2rem' : '2.5em'
+                }}
+              >
                 {props.children.props !== undefined
                   ? props.children.props.name
                   : 'Page Header'}
