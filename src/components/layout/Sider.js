@@ -24,7 +24,7 @@ const Sidebar = () => (
       </Box>
       <hr style={{ width: '100%', border: '0.5px solid #fff' }} />
       {list.map(item => (
-        <Link to={Object.values(item)[0]}>
+        <Link to={Object.values(item)[0]} key={Object.keys(item)[0]}>
           <Button key={Object.keys(item)[0]} hoverIndicator>
             <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
               <Text color="#fff">{Object.keys(item)[0]}</Text>
@@ -36,4 +36,4 @@ const Sidebar = () => (
   </>
 );
 
-export default withRouter(Sidebar);
+export default Sidebar;

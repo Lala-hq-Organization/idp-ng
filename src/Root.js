@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loading from './components/Loading';
 
-// const Play = lazy(() => import('./components/Play'));
 const Homepage = lazy(() => import('./pages/Homepage'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Camps = lazy(() => import('./pages/Camps'));
@@ -23,6 +22,9 @@ const App = () => (
           <Candidates />
         </Route>
         <Route exact path="/camps">
+          <Camps />
+        </Route>
+        <Route exact path="/camps/:state">
           <Camps />
         </Route>
         <Route exact path="/login">
