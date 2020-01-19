@@ -1,3 +1,4 @@
+import SupportHeader from '../../SupportHeader';
 export const USER_LOGIN = 'USER_LOGIN';
 const login = payload => ({
   type: USER_LOGIN,
@@ -25,8 +26,12 @@ const loginBoundActionCreator = (
 ) => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.post('/auth/login', data);
-    console.log(response.data.data);
+    const response = await request.post(
+      '/auth/login',
+      data,
+      SupportHeader({ 'Content-type': `application/json` })
+    );
+
     dispatch(login(response.data.data));
     dispatch(setLoading(false));
     navigateToDashboard();
@@ -41,10 +46,9 @@ const loginBoundActionCreator = (
 export const authAction = request => async dispatch => {
   try {
     const response = await request.post('/auth/me');
-    console.log(response.data, '4567890');
+
     dispatch(onAuth(response.data.data));
   } catch (err) {
-    console.log(err);
     return dispatch(onError(err));
   }
 };

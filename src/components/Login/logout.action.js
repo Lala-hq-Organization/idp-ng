@@ -12,7 +12,6 @@ const logoutActionCreator = (
   try {
     dispatch(setLoading(true));
     const response = await request.post('auth/logout');
-    console.log(response);
     dispatch(logout(response.data));
     dispatch(setLoading(false));
     navigateToLandingPage();
