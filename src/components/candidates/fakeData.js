@@ -20,8 +20,7 @@ export const columns = [
       <Text size="small" color="#8898AA">
         NAME
       </Text>
-    ),
-    primary: true
+    )
   },
   {
     property: 'Date',
@@ -54,6 +53,14 @@ export const columns = [
         CHILDREN
       </Text>
     )
+  },
+  {
+    property: 'key',
+    header: (
+      <Text size="small" color="#8898AA">
+        KEY
+      </Text>
+    )
   }
 ];
 
@@ -68,7 +75,8 @@ export const DATA = [
     Date: '356',
     State: '16',
     Number: '49',
-    Children: 25
+    Children: 25,
+    key: 'firstKey'
   },
   {
     name: (
@@ -80,7 +88,8 @@ export const DATA = [
     Date: '159',
     State: '6',
     Number: '24',
-    Children: 72
+    Children: 72,
+    key: 'secondKey'
   },
   {
     name: (
@@ -92,7 +101,8 @@ export const DATA = [
     Date: '205',
     State: '32',
     Number: '43',
-    Children: 31
+    Children: 31,
+    key: 'thirdKey'
   },
   {
     name: (
@@ -104,7 +114,8 @@ export const DATA = [
     Date: '150',
     State: '10',
     Number: '12',
-    Children: 95
+    Children: 95,
+    key: 'fourthKey'
   },
   {
     name: (
@@ -116,7 +127,8 @@ export const DATA = [
     State: '160',
     Date: '0',
     Number: '41',
-    Children: 10
+    Children: 10,
+    key: 'fifthKey'
   },
   {
     name: (
@@ -126,9 +138,10 @@ export const DATA = [
       </Box>
     ),
     State: '210',
-    Date: '0',
+    Date: '56',
     Number: '28',
-    Children: 40
+    Children: 40,
+    key: 'sixthKey'
   }
 ];
 
@@ -189,6 +202,14 @@ export const individualColumns = [
         OCCUPATION
       </Text>
     )
+  },
+  {
+    property: 'key',
+    header: (
+      <Text size="small" color="#8898AA">
+        KEY
+      </Text>
+    )
   }
 ];
 
@@ -205,7 +226,8 @@ export const DATA2 = [
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'seventhKey'
   },
   {
     name: (
@@ -219,7 +241,8 @@ export const DATA2 = [
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'eigthKey'
   },
   {
     name: (
@@ -233,7 +256,8 @@ export const DATA2 = [
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'ninthKey'
   },
   {
     name: (
@@ -247,7 +271,8 @@ export const DATA2 = [
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'tenthKey'
   },
   {
     name: (
@@ -261,7 +286,8 @@ export const DATA2 = [
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'eleventhKey'
   },
   {
     name: (
@@ -271,10 +297,11 @@ export const DATA2 = [
       </Box>
     ),
     State: '210',
-    Date: '0',
+    Date: '67',
     Gender: 'female',
     Family: 25,
     Age: 34,
-    Occupation: 'Farmer'
+    Occupation: 'Farmer',
+    key: 'twelvethKey'
   }
 ];
