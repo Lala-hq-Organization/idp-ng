@@ -1,20 +1,29 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import { Box, Menu } from 'grommet';
 // import { Power, User } from 'grommet-icons';
 
-const App = () => (
-  <Box align="center">
-    <Menu
-      dropProps={{ align: { top: 'bottom', left: 'left' } }}
-      // label="actions"
-      items={[
-        { label: ' Dashboard' },
-        { label: 'Candidates' },
-        { label: ' Camps' }
-      ]}
-    />
-  </Box>
-);
+const App = props => {
+  return (
+    <Box align="center">
+      <Menu
+        dropProps={{ align: { top: 'bottom', left: 'left' } }}
+        // label="actions"
+        items={[
+          {
+            label: ' Dashboard',
+            onClick: () => props.history.push('/dashboard')
+          },
+          {
+            label: 'Candidates',
+            onClick: () => props.history.push('/candidates')
+          },
+          { label: ' Camps', onClick: () => props.history.push('/camps') }
+        ]}
+      />
+    </Box>
+  );
+};
 
-export default App;
+export default withRouter(App);

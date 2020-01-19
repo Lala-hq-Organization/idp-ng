@@ -32,7 +32,7 @@ const styles = {
     textAlign: 'center',
     marginTop: '1em'
   },
-  pageHeaderText: { color: '#4D4F5C', fontWeight: 600, fontSize: '2.5em' }
+  pageHeaderText: { color: '#4D4F5C', fontWeight: 600, fontSize: '5rem' }
 };
 
 export default styles;
