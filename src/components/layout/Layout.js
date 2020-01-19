@@ -15,8 +15,8 @@ import './layout.css';
 const App = props => {
   const size = useContext(ResponsiveContext);
   const handleLogout = () => {
-    const navigateToLandingPage = () => props.history.push('/');
-    props.logout(request, navigateToLandingPage);
+    // const navigateToLandingPage = () => props.history.push('/');
+    props.logout(request);
   };
   return (
     <Grommet full theme={grommet}>

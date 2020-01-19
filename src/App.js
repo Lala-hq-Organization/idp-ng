@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import request from './request';
 import { authAction } from '../src/components/Login/login.action';
+import { clearErrorsAction } from '../src/components/data/data.action';
 
 import Root from './Root';
 
@@ -31,6 +32,7 @@ const customBreakpoints = deepMerge(grommet, {
 
 function App(props) {
   useEffect(() => {
+    props.clearError();
     props.auth(request);
   }, [props]);
 
@@ -44,7 +46,8 @@ function App(props) {
 }
 
 const mapDispatchToProps = {
-  auth: authAction
+  auth: authAction,
+  clearError: clearErrorsAction
 };
 
 export default connect(null, mapDispatchToProps)(App);

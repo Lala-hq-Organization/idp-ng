@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Form, Text, ResponsiveContext } from 'grommet';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -8,11 +8,18 @@ import Input from './Input';
 import logo from '../../assets/logo.png';
 import Button from '../candidates/Button';
 import loginAction from './login.action';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import request from '../../request';
+import FormError from '../error/index';
+import { clearErrorsAction } from '../data/data.action';
 
 const App = props => {
+  useEffect(() => {
+    props.clearError();
+  }, [props]);
+  const error = useSelector(({ error }) => error);
+
   return (
     <ResponsiveContext.Consumer>
       {size => {
@@ -47,6 +54,7 @@ const App = props => {
                     Login
                   </Text>
                 </Box>
+
                 <Formik
                   initialValues={{ userName: '', password: '' }}
                   validationSchema={Yup.object({
@@ -75,6 +83,7 @@ const App = props => {
                       onSubmit={formik.handleSubmit}
                       style={{ textAlign: 'center' }}
                     >
+                      <FormError error={error.error} />
                       <Input
                         type="text"
                         value={formik.values.userName}
@@ -115,7 +124,8 @@ const App = props => {
 };
 
 const mapDispatchToProps = {
-  login: loginAction
+  login: loginAction,
+  clearError: clearErrorsAction
 };
 
 export default connect(null, mapDispatchToProps)(withRouter(App));

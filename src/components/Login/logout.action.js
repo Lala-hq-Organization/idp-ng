@@ -6,15 +6,15 @@ const logout = payload => ({
 });
 
 const logoutActionCreator = (
-  request,
-  navigateToLandingPage
+  request
+  // navigateToLandingPage
 ) => async dispatch => {
   try {
     dispatch(setLoading(true));
     const response = await request.post('auth/logout');
     dispatch(logout(response.data));
     dispatch(setLoading(false));
-    navigateToLandingPage();
+    // navigateToLandingPage();
     return;
   } catch (err) {
     dispatch(setLoading(false));
