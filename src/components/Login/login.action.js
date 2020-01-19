@@ -13,6 +13,11 @@ export const onError = payload => ({
   payload
 });
 
+export const onAuth = payload => ({
+  type: 'SET_AUTH',
+  payload
+});
+
 const loginBoundActionCreator = (
   data,
   request,
@@ -29,6 +34,17 @@ const loginBoundActionCreator = (
     return response.data;
   } catch (err) {
     dispatch(setLoading(false));
+    return dispatch(onError(err));
+  }
+};
+
+export const authAction = request => async dispatch => {
+  try {
+    const response = await request.post('/auth/me');
+    console.log(response.data, '4567890');
+    dispatch(onAuth(response.data.data));
+  } catch (err) {
+    console.log(err);
     return dispatch(onError(err));
   }
 };
