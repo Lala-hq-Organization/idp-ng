@@ -54,15 +54,17 @@ const App = props => {
               </Text>
             </Box>
 
-            <Box direction="row" align="end">
-              <Notification color="#683687" size="medium" />
-              <Box width="xxsmall"></Box>
-              <StatusUnknown color="#683687" />
-              <Box width="xxsmall"></Box>
-              <Text color="#60317C" size="2rem" onClick={handleLogout}>
-                Logout
-              </Text>
-            </Box>
+            {size === 'medium' || size === 'large' ? (
+              <Box direction="row" align="end">
+                <Notification color="#683687" size="medium" />
+                <Box width="xxsmall"></Box>
+                <StatusUnknown color="#683687" />
+                <Box width="xxsmall"></Box>
+                <Text color="#60317C" size="2rem" onClick={handleLogout}>
+                  Logout
+                </Text>
+              </Box>
+            ) : null}
           </Box>
           {props.children}
         </Box>
