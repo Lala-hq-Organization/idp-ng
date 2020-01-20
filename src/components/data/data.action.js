@@ -72,7 +72,6 @@ export const getCampsData = request => async dispatch => {
   try {
     dispatch(setLoading(true));
     const response = await request.get('/camps');
-    console.log(response);
     dispatch(getCamps(response.data));
     dispatch(setLoading(false));
     return response.data;
