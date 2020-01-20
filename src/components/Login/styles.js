@@ -9,8 +9,8 @@ export default {
   },
   form: {
     background: '#FFFFFF 0% 0% no-repeat padding-box',
-    height: '50%',
-    padding: '4em 0'
+    padding: '4em 0em 0em 0em',
+    boxShadow: '0px 3px 6px #0000001A'
   },
   innerFormBox: {
     alignItems: 'center',
