@@ -1,47 +1,27 @@
 import React from 'react';
-import { Box, Button } from 'grommet';
 import styled from 'styled-components';
 
-export default function DashCard() {
+import { styles } from './styles';
+
+export default function DashCard({ campData }) {
+  campData = campData.data || [];
+
   return (
-    <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
-      <Card>
-        <Title>total candidates</Title>
-        <Subtitle>123,456</Subtitle>
-        <Button
-          label="View"
-          as="a"
-          href="#"
-          plain={true}
-          focusIndicator={false}
-          onClick={() => {}}
-        />
-      </Card>
-      <Card>
-        <Title>total camps</Title>
-        <Subtitle>123,456</Subtitle>
-        <Button
-          label="View"
-          as="a"
-          href="#"
-          plain={true}
-          focusIndicator={false}
-          onClick={() => {}}
-        />
-      </Card>
-      <Card>
-        <Title>total families</Title>
-        <Subtitle>123,456</Subtitle>
-        <Button
-          label="View"
-          as="a"
-          href="#"
-          plain={true}
-          focusIndicator={false}
-          onClick={() => {}}
-        />
-      </Card>
-    </Box>
+    // <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
+    <>
+      {campData.map(camp => {
+        return (
+          <Card key={camp}>
+            <Title>{camp}</Title>
+            <Subtitle>lorem ipsum dolor</Subtitle>
+            <a className="btn" href="#" style={styles.viewBtn}>
+              View
+            </a>
+          </Card>
+        );
+      })}
+    </>
+    // </Box>
   );
 }
 
@@ -57,27 +37,23 @@ const Card = styled.div`
   box-shadow: 0 1px 3px 0 cornflowerblue, 0 0 0 1px cornflowerblue;
   border-radius: 14px;
   margin-right: 2em;
+  margin-top: 1em;
 
   &:last-child {
     margin-right: 0;
   }
 `;
 
-// const CustomButton = styled(Button)`
-//   border-radius: 3px;
-//   background: cornflowerblue;
-// `;
-
 const Title = styled.h3`
   margin-bottom: 0;
+  margin-top: 0;
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
 `;
 
 const Subtitle = styled.p`
   margin-top: 0.2em;
   margin-bottom: 0.5em;
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: 1.5rem;
 `;

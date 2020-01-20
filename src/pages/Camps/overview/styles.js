@@ -6,5 +6,6 @@ export const styles = {
     marginLeft: '3em',
     borderRadius: '3px'
   },
-  imageBox: { height: '35em' }
+  imageBox: { height: '35em' },
+  viewBtn: { color: '#7764E4', background: '#fff', padding: '0.2em 2em' }
 };
