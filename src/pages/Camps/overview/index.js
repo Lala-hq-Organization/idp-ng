@@ -22,7 +22,7 @@ function States(props) {
         <DashCard campData={camps} />
       </Box>
       <Box style={styles.imageBox}>
-        <Image src={states} fit="cover" />
+        <Image src={states} fit="cover" style={styles.image} />
       </Box>
     </Box>
   );
