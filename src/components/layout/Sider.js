@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Text } from 'grommet';
 
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import list from './list';
 
 import styles from './styles';

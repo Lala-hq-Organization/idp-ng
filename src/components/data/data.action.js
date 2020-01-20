@@ -44,7 +44,6 @@ export const getFamiliesData = request => async dispatch => {
   try {
     dispatch(setLoading(true));
     const response = await request.get('/families');
-    console.log(response);
     dispatch(getFamilies(response.data));
     dispatch(setLoading(false));
     return response.data;
@@ -57,8 +56,7 @@ export const getFamiliesData = request => async dispatch => {
 export const getIndividualsData = request => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.get('/individuals');
-    console.log(response);
+    const response = await request.get('/candidates');
     dispatch(getIndividuals(response.data));
     dispatch(setLoading(false));
     return response.data;
@@ -72,7 +70,6 @@ export const getCampsData = request => async dispatch => {
   try {
     dispatch(setLoading(true));
     const response = await request.get('/camps');
-    console.log(response);
     dispatch(getCamps(response.data));
     dispatch(setLoading(false));
     return response.data;

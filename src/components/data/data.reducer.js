@@ -7,8 +7,8 @@ import {
 
 export const initialState = {
   dashboard: [],
-  families: [],
-  individuals: [],
+  families: {},
+  individuals: {},
   camps: []
 };
 
