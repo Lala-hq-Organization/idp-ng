@@ -3,18 +3,27 @@ import Chart from 'react-apexcharts';
 
 import { styles } from './styles';
 
-export default function PieChart() {
+export default function PieChart(props) {
+  const { dashboard } = props;
+
+  const getSeries = () => {
+    if (dashboard.length > 0) {
+      let x = dashboard[6].maritalStatus.map(item => item.total);
+      return x;
+    }
+    return [0, 0];
+  };
+
   return (
     <Chart
       options={options}
-      series={series}
+      series={getSeries()}
       type="donut"
       style={styles.barChart}
     />
   );
 }
 
-const series = [50, 50];
 const options = {
   chart: {
     type: 'donut'

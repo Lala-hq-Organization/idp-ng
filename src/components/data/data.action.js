@@ -31,11 +31,10 @@ export const clearErr = payload => ({
 export const getDashboardData = request => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.get('/dashboard');
-    console.log(response);
-    dispatch(getDashboard(response.data));
+    const response = await request.get('/aggregate');
+    dispatch(getDashboard(response.data.data));
     dispatch(setLoading(false));
-    return response.data;
+    return;
   } catch (err) {
     dispatch(setLoading(false));
     return dispatch(onError(err));
