@@ -7,7 +7,7 @@ export default function DashCard(props) {
   const { dashboard } = props;
 
   return (
-    <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
+    <Box direction="row" wrap={true} margin="0em 0em 2.8em 0em">
       <Card>
         <div>
           <Title>total candidates</Title>
@@ -56,8 +56,7 @@ export default function DashCard(props) {
 }
 
 const Card = styled.div`
-  width: 14em;
-  height: 7em;
+  width: 12em;
   padding: 1rem;
   background: rgb(4, 202, 251);
   background: linear-gradient(
@@ -69,6 +68,7 @@ const Card = styled.div`
   box-shadow: 0 1px 3px 0 cornflowerblue, 0 0 0 1px cornflowerblue;
   border-radius: 14px;
   margin-right: 2em;
+  margin-top: 1em;
 
   display: flex;
   justify-content: space-between;

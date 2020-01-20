@@ -4,14 +4,18 @@ import { Box } from 'grommet';
 import BarChart from './BarChart';
 import PieChart from './PieChart';
 
+import { styles } from './styles';
+
 export default function Charts(props) {
   const { dashboard } = props;
+  console.log(dashboard);
+
   return (
-    <Box direction="row" justify="between">
-      <Box width="68%">
+    <Box style={styles.chartBox} direction="row" wrap={true}>
+      <Box style={styles.barChartBox}>
         <BarChart dashboard={dashboard} />
       </Box>
-      <Box direction="column" width="30%" justify="between">
+      <Box style={styles.pieChartBox} wrap={true}>
         <Box height="48%">
           <PieChart dashboard={dashboard} />
         </Box>
