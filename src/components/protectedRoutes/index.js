@@ -3,11 +3,12 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const App = props => {
-  const { isLoggedIn } = useSelector(({ user }) => user);
+  // const { isLoggedIn } = useSelector(({ user }) => user);
+  const { token } = useSelector(({ authentication }) => authentication);
 
   return (
     <>
-      {!isLoggedIn && <Redirect to="/login" />}
+      {!!!token && <Redirect to="/login" />}
       {props.children}
     </>
   );

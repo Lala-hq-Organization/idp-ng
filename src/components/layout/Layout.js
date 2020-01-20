@@ -5,7 +5,6 @@ import { grommet } from 'grommet/themes';
 import { Notification, StatusUnknown } from 'grommet-icons';
 import { connect } from 'react-redux';
 import logoutAction from '../../components/Login/logout.action';
-import request from '../../request';
 
 import styles from './styles';
 import Sider from './Sider';
@@ -14,10 +13,12 @@ import './layout.css';
 
 const App = props => {
   const size = useContext(ResponsiveContext);
-  const handleLogout = () => {
-    // const navigateToLandingPage = () => props.history.push('/');
-    props.logout(request);
+  const handleLogout = e => {
+    e.preventDefault();
+    localStorage.clear();
+    props.logout();
   };
+
   return (
     <Grommet full theme={grommet}>
       <Grid
@@ -60,7 +61,12 @@ const App = props => {
                 <Box width="xxsmall"></Box>
                 <StatusUnknown color="#683687" />
                 <Box width="xxsmall"></Box>
-                <Text color="#60317C" size="2rem" onClick={handleLogout}>
+                <Text
+                  color="#60317C"
+                  size="2rem"
+                  onClick={handleLogout}
+                  style={{ cursor: 'pointer' }}
+                >
                   Logout
                 </Text>
               </Box>

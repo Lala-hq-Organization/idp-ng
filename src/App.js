@@ -5,8 +5,8 @@ import { deepMerge } from 'grommet/utils';
 import { grommet } from 'grommet/themes';
 import { connect } from 'react-redux';
 
-import request from './request';
-import { authAction } from '../src/components/Login/login.action';
+// import request from './request';
+// import { authAction } from '../src/components/Login/login.action';
 import { clearErrorsAction } from '../src/components/data/data.action';
 
 // import Loading from './components/Loading';
@@ -35,7 +35,7 @@ const customBreakpoints = deepMerge(grommet, {
 function App(props) {
   useEffect(() => {
     props.clearError();
-    props.auth(request);
+    // props.auth(request);
   }, [props]);
 
   return (
@@ -48,7 +48,7 @@ function App(props) {
 }
 
 const mapDispatchToProps = {
-  auth: authAction,
+  // auth: authAction,
   clearError: clearErrorsAction
 };
 

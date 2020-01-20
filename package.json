@@ -13,6 +13,7 @@
     "grommet": "^2.9.0",
     "grommet-icons": "^4.4.0",
     "husky": "^4.0.9",
+    "lodash": "4.17.15",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "react": "^16.12.0",

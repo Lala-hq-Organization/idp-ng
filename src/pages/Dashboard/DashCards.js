@@ -3,13 +3,17 @@ import { Box } from 'grommet';
 import styled from 'styled-components';
 import { LineChart, BarChart } from 'grommet-icons';
 
-export default function DashCard() {
+export default function DashCard(props) {
+  const { dashboard } = props;
+
   return (
     <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
       <Card>
         <div>
           <Title>total candidates</Title>
-          <Count>123,456</Count>
+          <Count>
+            {dashboard.length > 0 ? dashboard[1].candidates : 'Loading'}
+          </Count>
         </div>
         <IconContainer>
           <LineChart />
@@ -19,7 +23,7 @@ export default function DashCard() {
         {' '}
         <div>
           <Title>total camps</Title>
-          <Count>123,456</Count>
+          <Count>{dashboard.length > 0 ? dashboard[0].camps : 'Loading'}</Count>
         </div>
         <IconContainer>
           <LineChart />
@@ -28,7 +32,9 @@ export default function DashCard() {
       <Card>
         <div>
           <Title>total families</Title>
-          <Count>123,456</Count>
+          <Count>
+            {dashboard.length > 0 ? dashboard[2].families : 'Loading'}
+          </Count>
         </div>
         <IconContainer>
           <LineChart />
@@ -37,7 +43,9 @@ export default function DashCard() {
       <Card>
         <div>
           <Title>total children</Title>
-          <Count>123,456</Count>
+          <Count>
+            {dashboard.length > 0 ? dashboard[3].children : 'Loading'}
+          </Count>
         </div>
         <IconContainer>
           <BarChart />

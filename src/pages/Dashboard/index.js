@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box } from 'grommet';
+import { connect, useSelector } from 'react-redux';
+import { getDashboardData } from '../../components/data/data.action';
+import request from '../../request';
+
 import GridLayout from '../../components/layout/Layout';
 
 import { styles } from './styles';
@@ -7,7 +11,13 @@ import { styles } from './styles';
 import DashCard from './DashCards';
 import Charts from './Charts';
 
-export default function Dashboard() {
+function Dashboard(props) {
+  useEffect(() => {
+    props.allData(request);
+  }, [props]);
+
+  const { dashboard } = useSelector(({ data }) => data);
+
   return (
     <GridLayout>
       <Box
@@ -17,9 +27,15 @@ export default function Dashboard() {
         pad="medium"
         background="transparent"
       >
-        <DashCard />
-        <Charts />
+        <DashCard dashboard={dashboard} />
+        <Charts dashboard={dashboard} />
       </Box>
     </GridLayout>
   );
 }
+
+const mapDispatchToProps = {
+  allData: getDashboardData
+};
+
+export default connect(null, mapDispatchToProps)(Dashboard);
