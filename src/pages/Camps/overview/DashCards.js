@@ -46,8 +46,7 @@ export default function DashCard() {
 }
 
 const Card = styled.div`
-  width: 14em;
-  padding: 1rem;
+  padding: 1em;
   background: rgb(4, 202, 251);
   background: linear-gradient(
     150deg,

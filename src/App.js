@@ -9,6 +9,8 @@ import request from './request';
 import { authAction } from '../src/components/Login/login.action';
 import { clearErrorsAction } from '../src/components/data/data.action';
 
+// import Loading from './components/Loading';
+
 import Root from './Root';
 
 const customBreakpoints = deepMerge(grommet, {
