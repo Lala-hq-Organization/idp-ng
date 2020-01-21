@@ -13,8 +13,7 @@ import './layout.css';
 
 const App = props => {
   const size = useContext(ResponsiveContext);
-  const handleLogout = e => {
-    e.preventDefault();
+  const handleLogout = () => {
     localStorage.clear();
     props.logout();
   };
@@ -40,7 +39,9 @@ const App = props => {
             background="#F7F4FF"
             style={styles.header}
           >
-            {size === 'xsmall' ? <AlterbateMenu /> : null}
+            {size === 'xsmall' ? (
+              <AlterbateMenu handleLogout={handleLogout} />
+            ) : null}
 
             <Box>
               <Text
