@@ -38,6 +38,7 @@ const App = props => {
                 onChange={props.handleChange}
                 name={props.name}
                 onBlur={props.onBlur}
+                placeholder={props.label}
               />
               {props.password && (
                 <Button

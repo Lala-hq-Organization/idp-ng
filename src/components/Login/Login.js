@@ -96,6 +96,7 @@ const App = props => {
                         onBlur={formik.handleBlur}
                         formikTouched={formik.touched.userName}
                         formikError={formik.errors.userName}
+                        label="username"
                       />
                       <Input
                         value={formik.values.password}
@@ -105,6 +106,7 @@ const App = props => {
                         onBlur={formik.handleBlur}
                         formikTouched={formik.touched.password}
                         formikError={formik.errors.password}
+                        label="password"
                       />
                       <button style={styles.btn}>
                         <Button
