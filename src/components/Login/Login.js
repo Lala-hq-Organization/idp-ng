@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Box, Form, Text, ResponsiveContext } from 'grommet';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { BeatLoader } from 'react-spinners';
+
 import styles from './styles';
 import layoutStyles from '../layout/styles';
 import Input from './Input';
@@ -19,6 +21,7 @@ const App = props => {
     props.clearError();
   }, [props]);
   const error = useSelector(({ error }) => error);
+  const { loading } = useSelector(({ user }) => user);
 
   return (
     <ResponsiveContext.Consumer>
@@ -106,9 +109,11 @@ const App = props => {
                       <button style={styles.btn}>
                         <Button
                           boxStyle={styles.formButton}
-                          handleButton={formik.handleSubmit}
+                          handleButton={loading ? null : formik.handleSubmit}
                           textStyle={styles.formButtonText}
-                          text="Continue"
+                          text={
+                            loading ? <BeatLoader color="#fff" /> : 'Continue'
+                          }
                         />
                       </button>
                     </Form>
