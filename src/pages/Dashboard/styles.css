@@ -1,0 +1,38 @@
+.dash-chart {
+}
+
+.bar-chart,
+.pie-chart-holder,
+.pie-chart {
+  min-height: unset;
+}
+
+.bar-chart > div {
+  overflow-x: scroll;
+}
+
+.bar-chart div svg {
+  margin-right: 1em;
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 1000px) {
+  .dash-chart {
+    flex-direction: column;
+  }
+
+  .bar-chart,
+  .pie-chart-holder,
+  .pie-chart {
+    width: 100%;
+  }
+
+  .pie-chart {
+    margin: 0.5rem;
+  }
+}
+
+@media (min-width: 780px) and (max-width: 1380px) {
+}

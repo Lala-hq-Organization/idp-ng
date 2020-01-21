@@ -1,26 +1,76 @@
-import React, { useState, useContext } from 'react';
-import { Box, DataTable, ResponsiveContext } from 'grommet';
+import React, { useState, useContext, useEffect } from 'react';
+import { Box, DataTable, ResponsiveContext, Text } from 'grommet';
+import { connect, useSelector } from 'react-redux';
 
-import { DATA, columns, individualColumns, DATA2 } from './fakeData';
+import { columns, individualColumns, Avatar } from './fakeData';
 import Layout from '../layout/Layout';
 import styles from './styles';
 import Filter from './Filter';
 import ElaborateFilter from './ElaborateFilter';
 import Button from './Button';
 import AlternateTableMenu from './AlternateTableMenu';
+import { getIndividualsData, getFamiliesData } from '../data/data.action';
+import request from '../../request';
 
-const Candidates = () => {
+const Candidates = props => {
+  useEffect(() => {
+    props.getIndividualsData(request);
+    props.getFamiliesData(request);
+  }, [props]);
+
+  const { individuals, families } = useSelector(({ data }) => data);
+
+  const candidates = () => {
+    if (individuals.data) {
+      return individuals.data.map(item => ({
+        name: (
+          <Box direction="row" style={styles.profile}>
+            <Avatar image={item.image} />
+            <Text style={styles.profileName}>{item.name}</Text>
+          </Box>
+        ),
+        Date: item.date_added,
+        State: item.state,
+        Gender: item.gender,
+        Family: item.family,
+        Age: item.age_group,
+        Occupation: item.occupation,
+        id: item._id
+      }));
+    }
+    return [];
+  };
+
+  const familiesData = () => {
+    if (families.data) {
+      return families.data.map(item => ({
+        name: (
+          <Box direction="row" style={styles.profile}>
+            <Avatar />
+            <Text style={styles.profileName}>{item.name}</Text>
+          </Box>
+        ),
+        Date: item.date_added,
+        State: item.state,
+        Number: item.total_number,
+        Children: item.children,
+        id: item._id
+      }));
+    }
+    return [];
+  };
+
   const size = useContext(ResponsiveContext);
-  const [currentTable, setCurrentTable] = useState(DATA);
+  const [currentTable, setCurrentTable] = useState([]);
   const [currentColumn, setCurrentColumn] = useState(columns);
   const [displayFilters, setDisplayFilters] = useState(false);
   function setIndividualTable() {
-    setCurrentTable(DATA2);
+    setCurrentTable(candidates());
     setCurrentColumn(individualColumns);
   }
 
   function setFamilyTable() {
-    setCurrentTable(DATA);
+    setCurrentTable(familiesData());
     setCurrentColumn(columns);
   }
   function handleFilterDisplay() {
@@ -84,7 +134,7 @@ const Candidates = () => {
 
           <Box style={{ display: 'block', width: '100%', overflowX: 'auto' }}>
             <DataTable
-              primaryKey="key"
+              primaryKey="id"
               style={styles.tableStyle}
               columns={currentColumn}
               data={currentTable}
@@ -107,4 +157,9 @@ const Candidates = () => {
   );
 };
 
-export default Candidates;
+const mapDispatchToProps = {
+  getIndividualsData,
+  getFamiliesData
+};
+
+export default connect(null, mapDispatchToProps)(Candidates);

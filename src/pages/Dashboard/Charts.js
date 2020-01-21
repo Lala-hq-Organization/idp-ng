@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet';
+import './styles.css';
 
 import BarChart from './BarChart';
 import PieChart from './PieChart';
@@ -11,15 +12,20 @@ export default function Charts(props) {
   console.log(dashboard);
 
   return (
-    <Box style={styles.chartBox} direction="row" wrap={true}>
-      <Box style={styles.barChartBox}>
+    <Box className="dash-chart" direction="row" justify="between">
+      <Box className="bar-chart" width="68%">
         <BarChart dashboard={dashboard} />
       </Box>
-      <Box style={styles.pieChartBox} wrap={true}>
-        <Box height="48%">
+      <Box
+        className="pie-chart-holder"
+        direction="column"
+        width="30%"
+        justify="between"
+      >
+        <Box className="pie-chart" height="48%">
           <PieChart dashboard={dashboard} />
         </Box>
-        <Box height="48%">
+        <Box className="pie-chart" height="48%">
           <PieChart dashboard={dashboard} />
         </Box>
       </Box>

@@ -26,6 +26,7 @@ function Dashboard(props) {
         direction="column"
         pad="medium"
         background="transparent"
+        justify="between"
       >
         <DashCard dashboard={dashboard} />
         <Charts dashboard={dashboard} />
