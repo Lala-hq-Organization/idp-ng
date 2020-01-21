@@ -26,12 +26,12 @@ const loginBoundActionCreator = (
   try {
     dispatch(setLoading(true));
     const response = await request.post('/auth/login', data);
-    dispatch(login(response.data.data));
-    dispatch(setToken(response.data.data.token));
-    dispatch(setLoading(false));
+    await dispatch(login(response.data.data));
+    await dispatch(setToken(response.data.data.token));
+    await dispatch(setLoading(false));
     navigateToDashboard();
 
-    return response.data;
+    return;
   } catch (err) {
     dispatch(setLoading(false));
     return dispatch(onError(err.response.data));

@@ -19,7 +19,8 @@ const App = props => {
             label: 'Candidates',
             onClick: () => props.history.push('/candidates')
           },
-          { label: ' Camps', onClick: () => props.history.push('/camps') }
+          { label: ' Camps', onClick: () => props.history.push('/camps') },
+          { label: 'Logout', onClick: () => props.handleLogout() }
         ]}
       />
     </Box>
