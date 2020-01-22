@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Image } from 'grommet';
+import { connect, useSelector } from 'react-redux';
+import { getCampsData } from '../../../components/data/data.action';
+import request from '../../../request';
 
 import DashCard from './DashCards';
 
 import { styles } from './styles';
 import states from '../../../assets/states.png';
 
-export default function States() {
+function States(props) {
+  useEffect(() => {
+    props.campData(request);
+  }, [props]);
+
+  const { camps } = useSelector(({ data }) => data);
+
   return (
     <Box name="Camps" style={styles.container} direction="column">
-      <Box direction="row">
-        <DashCard />
+      <Box direction="row" wrap={true} style={{ marginBottom: '10em' }}>
+        <DashCard campData={camps} />
       </Box>
-      <Box style={styles.imageBox} margin="4em 0em 0em 0em">
-        <Image src={states} fit="cover" />
+      <Box style={styles.imageBox}>
+        <Image src={states} fit="cover" style={styles.image} />
       </Box>
     </Box>
   );
 }
+
+const mapDispatchToProps = {
+  campData: getCampsData
+};
+
+export default connect(null, mapDispatchToProps)(States);

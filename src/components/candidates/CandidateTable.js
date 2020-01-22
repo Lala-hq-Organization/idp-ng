@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Box, DataTable, ResponsiveContext, Text } from 'grommet';
 import { connect, useSelector } from 'react-redux';
+import ReactPaginate from 'react-paginate';
+import { FormNext, FormPrevious } from 'grommet-icons';
 
 import { columns, individualColumns, Avatar } from './fakeData';
 import Layout from '../layout/Layout';
@@ -11,6 +13,8 @@ import Button from './Button';
 import AlternateTableMenu from './AlternateTableMenu';
 import { getIndividualsData, getFamiliesData } from '../data/data.action';
 import request from '../../request';
+
+import './paginate.css';
 
 const Candidates = props => {
   useEffect(() => {
@@ -64,6 +68,7 @@ const Candidates = props => {
   const [currentTable, setCurrentTable] = useState([]);
   const [currentColumn, setCurrentColumn] = useState(columns);
   const [displayFilters, setDisplayFilters] = useState(false);
+
   function setIndividualTable() {
     setCurrentTable(candidates());
     setCurrentColumn(individualColumns);
@@ -73,9 +78,13 @@ const Candidates = props => {
     setCurrentTable(familiesData());
     setCurrentColumn(columns);
   }
+
   function handleFilterDisplay() {
     setDisplayFilters(!displayFilters);
   }
+
+  console.log(individuals.count);
+  console.log(individuals.data);
 
   return (
     <Layout>
@@ -149,6 +158,26 @@ const Candidates = props => {
               }}
               border={{ body: 'bottom' }}
               rowProps={{ Eric: { background: 'accent-2', pad: 'large' } }}
+            />
+          </Box>
+          <Box style={styles.pageBox}>
+            <ReactPaginate
+              previousLabel={<FormPrevious />}
+              nextLabel={<FormNext />}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              pageCount={28}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              // onPageChange={this.handlePageClick}
+              containerClassName={'paginateContainer'}
+              pageClassName="page-links"
+              previousClassName="previous-btn"
+              previousLinkClassName="previous-btn-link"
+              nextClassName="previous-btn"
+              nextLinkClassName="previous-btn-link"
+              // subContainerClassName={'pages pagination'}
+              // activeClassName={'active'}
             />
           </Box>
         </Box>

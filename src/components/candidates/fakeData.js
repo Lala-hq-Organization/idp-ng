@@ -59,80 +59,80 @@ export const columns = [
   }
 ];
 
-export const DATA = [
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '356',
-    State: '16',
-    Number: '49',
-    Children: 25
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '159',
-    State: '6',
-    Number: '24',
-    Children: 72
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '205',
-    State: '32',
-    Number: '43',
-    Children: 31
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '150',
-    State: '10',
-    Number: '12',
-    Children: 95
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    State: '160',
-    Date: '0',
-    Number: '41',
-    Children: 10
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    State: '210',
-    Date: '56',
-    Number: '28',
-    Children: 40
-  }
-];
+// export const DATA = [
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '356',
+//     State: '16',
+//     Number: '49',
+//     Children: 25
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '159',
+//     State: '6',
+//     Number: '24',
+//     Children: 72
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '205',
+//     State: '32',
+//     Number: '43',
+//     Children: 31
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '150',
+//     State: '10',
+//     Number: '12',
+//     Children: 95
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     State: '160',
+//     Date: '0',
+//     Number: '41',
+//     Children: 10
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     State: '210',
+//     Date: '56',
+//     Number: '28',
+//     Children: 40
+//   }
+// ];
 
 export const individualColumns = [
   {
@@ -193,89 +193,89 @@ export const individualColumns = [
   }
 ];
 
-export const DATA2 = [
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '356',
-    State: '16',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '159',
-    State: '6',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '205',
-    State: '32',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    Date: '150',
-    State: '10',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    State: '160',
-    Date: '0',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  },
-  {
-    name: (
-      <Box direction="row" style={styles.profile}>
-        <Avatar />
-        <Text style={styles.profileName}>GingerBread</Text>
-      </Box>
-    ),
-    State: '210',
-    Date: '67',
-    Gender: 'female',
-    Family: 25,
-    Age: 34,
-    Occupation: 'Farmer'
-  }
-];
+// export const DATA2 = [
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '356',
+//     State: '16',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '159',
+//     State: '6',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '205',
+//     State: '32',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     Date: '150',
+//     State: '10',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     State: '160',
+//     Date: '0',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   },
+//   {
+//     name: (
+//       <Box direction="row" style={styles.profile}>
+//         <Avatar />
+//         <Text style={styles.profileName}>GingerBread</Text>
+//       </Box>
+//     ),
+//     State: '210',
+//     Date: '67',
+//     Gender: 'female',
+//     Family: 25,
+//     Age: 34,
+//     Occupation: 'Farmer'
+//   }
+// ];

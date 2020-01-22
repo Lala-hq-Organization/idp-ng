@@ -1,0 +1,21 @@
+.paginateContainer {
+  display: flex;
+}
+
+.page-links {
+  margin: 0 0.3em;
+  border: 1px solid #8898aa80;
+  border-radius: 50%;
+  color: #7764e4;
+  padding: 0.3em 0.7em;
+  cursor: pointer;
+}
+
+.previous-btn {
+  display: flex;
+  align-items: center;
+}
+
+.previous-btn-link {
+  display: flex;
+}

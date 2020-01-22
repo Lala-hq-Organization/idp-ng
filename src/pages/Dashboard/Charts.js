@@ -5,8 +5,12 @@ import './styles.css';
 import BarChart from './BarChart';
 import PieChart from './PieChart';
 
+import { styles } from './styles';
+
 export default function Charts(props) {
   const { dashboard } = props;
+  console.log(dashboard);
+
   return (
     <Box className="dash-chart" direction="row" justify="between">
       <Box className="bar-chart" width="68%">

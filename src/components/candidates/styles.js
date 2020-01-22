@@ -126,5 +126,11 @@ export default {
     color: '#000000',
     letterSpacing: '0.21px',
     margin: 'auto'
+  },
+  pageBox: {
+    padding: '0.3em 0em',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   }
 };

@@ -37,7 +37,7 @@ export default function BarChart(props) {
         }
       ]}
       type="bar"
-      width="600"
+      width="100%"
       style={styles.barChart}
     />
   );
