@@ -29,6 +29,9 @@ const App = () => (
           <Route exact path="/camps">
             <Camps />
           </Route>
+          <Route exact path="/camps/:state">
+            <Camps />
+          </Route>
         </ProtectedRoutes>
       </Switch>
     </Suspense>

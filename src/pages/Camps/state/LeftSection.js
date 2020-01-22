@@ -1,10 +1,13 @@
 import React from 'react';
 import { Box, Image } from 'grommet';
+import { useParams } from 'react-router-dom';
 
 import { styles } from '../styles';
 import thumbnail from '../../../assets/cute-774909@2x.png';
 
 export default function LeftSection() {
+  let { state } = useParams();
+
   return (
     <Box style={styles.firstBox}>
       <Box direction="row">
@@ -18,7 +21,7 @@ export default function LeftSection() {
           />
         </Box>
         <Box margin="0em 0em 0em 1em">
-          <h2 style={styles.firstBoxTitle}>yobe camp</h2>
+          <h2 style={styles.firstBoxTitle}>{state} camp</h2>
           <p style={styles.firstBoxSubtitle}>IDP/YOBE/001</p>
         </Box>
       </Box>

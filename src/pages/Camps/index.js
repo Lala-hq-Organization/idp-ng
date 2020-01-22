@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import GridLayout from '../../components/layout/Layout';
 import { useParams } from 'react-router-dom';
 
-import States from './state';
-import Overview from './overview';
+import Loading from '../../components/Loading';
+
+const States = lazy(() => import('./state'));
+const Overview = lazy(() => import('./overview'));
 
 export default function Camps() {
   let { state } = useParams();
-  console.log(state);
-  return <GridLayout>{setCurrentView(state)}</GridLayout>;
+
+  return (
+    <Suspense fallback={<Loading />}>
+      <GridLayout>{setCurrentView(state)}</GridLayout>
+    </Suspense>
+  );
 }
 
 function setCurrentView(page) {

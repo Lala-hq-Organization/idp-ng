@@ -7,21 +7,23 @@ export default function DashCard({ campData }) {
   campData = campData.data || [];
 
   return (
-    // <Box direction="row-responsive" margin="0em 0em 2.8em 0em">
     <>
       {campData.map(camp => {
         return (
           <Card key={camp}>
             <Title>{camp}</Title>
             <Subtitle>lorem ipsum dolor</Subtitle>
-            <a className="btn" href="#" style={styles.viewBtn}>
+            <a
+              className="btn"
+              href={`/camps/${camp.toLowerCase()}`}
+              style={styles.viewBtn}
+            >
               View
             </a>
           </Card>
         );
       })}
     </>
-    // </Box>
   );
 }
 
