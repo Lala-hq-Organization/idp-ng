@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Box, Text } from 'grommet';
-import styles from './styles';
 
 export const Avatar = props => (
   <Box
