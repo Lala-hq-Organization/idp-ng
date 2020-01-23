@@ -5,7 +5,7 @@ export const styles = {
     width: '85%',
     marginLeft: '3em',
     borderRadius: '3px',
-    height: '85%',
+    height: '84%',
     overflowY: 'scroll'
   },
   imageBox: { height: '35em' },

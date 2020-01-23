@@ -3,6 +3,7 @@ export const styles = {
     top: '3.5em',
     position: 'relative',
     width: '85%',
+    overflowX: 'scroll',
     marginLeft: '3em',
     borderRadius: '3px',
     boxShadow: '0px 3px 6px #2C28281C'
