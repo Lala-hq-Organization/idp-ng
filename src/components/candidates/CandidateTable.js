@@ -91,7 +91,11 @@ const Candidates = props => {
       <Box
         align="center"
         pad={{ vertical: 'small' }}
-        style={styles.mainDiv}
+        style={{
+          ...styles.mainDiv,
+          width: size === 'xsmall' ? '97%' : '90%',
+          paddingLeft: size === 'xsmall' ? '1em' : '6rem'
+        }}
         name="Candidates"
       >
         {displayFilters ? (
