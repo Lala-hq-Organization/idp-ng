@@ -18,6 +18,7 @@ export const styles = {
   heroRightSection: { flex: '0 1 40%' },
   heroTitle: {
     fontSize: '5rem',
+    lineHeight: 1.2,
     fontFamily: 'Open Sans, sans-serif',
     fontWeight: 400,
     textShadow: '0px 3px 6px #00000029'
@@ -39,6 +40,12 @@ export const styles = {
     fontSize: '2.3rem',
     fontWeight: 600,
     width: '16rem'
+  },
+  logoutBtn: {
+    marginLeft: 'auto',
+    background: '#E8850F',
+    color: '#fff',
+    fontSize: '1.8rem'
   },
   midSection: {
     paddingTop: '9em',

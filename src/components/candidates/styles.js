@@ -3,16 +3,15 @@ export default {
     position: 'relative',
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    paddingLeft: '6rem',
-    width: '80%'
+    alignItems: 'flex-start'
   },
   table: {
     backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
     borderRadius: '0.7rem',
-    boxShadow: '0px 3px 6px #2C28281C'
+    boxShadow: '0px 3px 6px #2C28281C',
+    width: '100%'
   },
   header: {
     display: 'flex',

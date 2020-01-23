@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Box, Image } from 'grommet';
+import React, { useEffect, useContext } from 'react';
+import { Box, Image, ResponsiveContext } from 'grommet';
 import { connect, useSelector } from 'react-redux';
 import { getCampsData } from '../../../components/data/data.action';
 import request from '../../../request';
@@ -10,6 +10,8 @@ import { styles } from './styles';
 import states from '../../../assets/states.png';
 
 function States(props) {
+  const size = useContext(ResponsiveContext);
+
   useEffect(() => {
     props.campData(request);
   }, [props]);
@@ -17,8 +19,20 @@ function States(props) {
   const { camps } = useSelector(({ data }) => data);
 
   return (
-    <Box name="Camps" style={styles.container} direction="column">
-      <Box direction="row" wrap={true} style={{ marginBottom: '10em' }}>
+    <Box
+      name="Camps"
+      style={{
+        ...styles.container,
+        marginLeft: size === 'small' ? '1em' : '3em',
+        width: size === 'small' ? '92%' : '85%'
+      }}
+      direction="column"
+    >
+      <Box
+        direction="row"
+        wrap={true}
+        style={{ marginBottom: '5em', minHeight: 'unset' }}
+      >
         <DashCard campData={camps} />
       </Box>
       <Box style={styles.imageBox}>

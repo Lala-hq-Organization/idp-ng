@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Box } from 'grommet';
+import React, { useEffect, useContext } from 'react';
+import { Box, ResponsiveContext } from 'grommet';
 import { connect, useSelector } from 'react-redux';
 import { getDashboardData } from '../../components/data/data.action';
 import request from '../../request';
@@ -12,6 +12,8 @@ import DashCard from './DashCards';
 import Charts from './Charts';
 
 function Dashboard(props) {
+  const size = useContext(ResponsiveContext);
+
   useEffect(() => {
     props.allData(request);
   }, [props]);
@@ -22,7 +24,10 @@ function Dashboard(props) {
     <GridLayout>
       <Box
         name="Dashboard"
-        style={styles.container}
+        style={{
+          ...styles.container,
+          width: size === 'small' || size === 'xsmall' ? '100%' : '90%'
+        }}
         direction="column"
         pad="medium"
         background="transparent"
