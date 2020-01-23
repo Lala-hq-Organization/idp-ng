@@ -125,7 +125,6 @@ export default {
   pageBox: {
     padding: '0.3em 0em',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
     alignItems: 'center'
   }
 };

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, DataTable, Text } from 'grommet';
+import React, { useState, useEffect, useContext } from 'react';
+import { Box, DataTable, Text, ResponsiveContext } from 'grommet';
 import { connect, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import { FormNext, FormPrevious } from 'grommet-icons';
@@ -16,6 +16,7 @@ import './paginate.css';
 const App = props => {
   const [pageNum, setPageNum] = useState(null);
   const [newPage, setNewPage] = useState(false);
+  const size = useContext(ResponsiveContext);
 
   const { individuals } = useSelector(({ data }) => data);
   const candidates = () => {
@@ -52,6 +53,10 @@ const App = props => {
     }
     props.getIndividualsData(request, pageNum);
   }, [pageNum, props, newPage]);
+
+  const pageCount = individuals.count
+    ? Math.ceil(individuals.count.candidates / 7)
+    : 10;
 
   return (
     <>
@@ -91,15 +96,20 @@ const App = props => {
           }}
         />
       </Box>
-      <Box style={styles.pageBox}>
+      <Box
+        style={{
+          ...styles.pageBox,
+          justifyContent: size === 'small' ? 'center' : 'flex-end'
+        }}
+      >
         <ReactPaginate
           previousLabel={<FormPrevious />}
           nextLabel={<FormNext />}
           breakLabel={'...'}
           breakClassName={'break-me'}
-          pageCount={28}
+          pageCount={pageCount}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={2}
           onPageChange={handlePageClick}
           containerClassName={'paginateContainer'}
           pageClassName="page-links"
