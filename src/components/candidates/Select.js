@@ -8,7 +8,7 @@ const App = props => {
   return (
     <Box>
       <Select
-        id="select"
+        id={props.id}
         name="select"
         placeholder={props.placeholder}
         value={value}

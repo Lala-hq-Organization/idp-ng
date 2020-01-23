@@ -40,10 +40,10 @@ export const getDashboardData = request => async dispatch => {
     return dispatch(onError(err));
   }
 };
-export const getFamiliesData = request => async dispatch => {
+export const getFamiliesData = (request, pageNum) => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.get('/families');
+    const response = await request.get(`/families?pageNum=${pageNum}`);
     dispatch(getFamilies(response.data));
     dispatch(setLoading(false));
     return response.data;
@@ -53,10 +53,10 @@ export const getFamiliesData = request => async dispatch => {
   }
 };
 
-export const getIndividualsData = request => async dispatch => {
+export const getIndividualsData = (request, pageNum) => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.get('/candidates');
+    const response = await request.get(`/candidates?pageNum=${pageNum}`);
     dispatch(getIndividuals(response.data));
     dispatch(setLoading(false));
     return response.data;
@@ -78,6 +78,16 @@ export const getCampsData = request => async dispatch => {
     return dispatch(onError(err));
   }
 };
+
+// export const getFilterData = request => async dispatch => {
+//   try {
+//     dispatch(setLoading(true));
+//     const response = await request.get('/');
+//   } catch (err) {
+//     dispatch(setLoading(false));
+//     dispatch(onError(err));
+//   }
+// };
 
 export const clearErrorsAction = () => async dispatch => {
   dispatch(clearErr({}));
