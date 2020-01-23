@@ -7,7 +7,6 @@ import PieChart from './PieChart';
 
 export default function Charts(props) {
   const { dashboard } = props;
-  console.log(dashboard);
 
   return (
     <Box className="dash-chart" direction="row" justify="between">
