@@ -22,12 +22,12 @@ const App = props => {
           }}
           gap="small"
         >
-          <Select placeholder="Camps" />
-          <Select placeholder="Family" />
-          <Select placeholder="State" />
-          <Select placeholder="Gender" />
-          <Select placeholder="LGA" />
-          <Select placeholder="Date" />
+          <Select placeholder="Camps" id="camps" />
+          <Select placeholder="Family" id="family" />
+          <Select placeholder="State" id="state" />
+          <Select placeholder="Gender" id="gender" />
+          <Select placeholder="LGA" id="lga" />
+          <Select placeholder="Date" id="date" />
           <Button
             boxStyle={styles.go}
             // handleButton={setIndividualTable}
