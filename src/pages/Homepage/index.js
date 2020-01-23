@@ -1,23 +1,40 @@
 import React, { useContext } from 'react';
 import { Box, Image, Heading, ResponsiveContext, Text } from 'grommet';
 import { Link } from 'react-router-dom';
+import { useSelector, connect } from 'react-redux';
+import logoutAction from '../../components/Login/logout.action';
 
 import Logo from '../../assets/logo2x.png';
 import undraw from '../../assets/undraw.svg';
 import map from '../../assets/map.svg';
 import { styles } from './styles';
 
-export default function Homepage() {
+function Homepage(props) {
   const size = useContext(ResponsiveContext);
+  const auth = useSelector(({ authentication }) => authentication.token);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    props.logout();
+  };
 
   return (
     <Box direction="column" background="#F8FBFD">
-      <Box direction="row" style={styles.container}>
+      <Box direction="row" align="center" style={styles.container}>
         <Box width="7rem">
           <Link to="/">
             <Image fill src={Logo} alt="site logo" />
           </Link>
         </Box>
+        {auth && (
+          <button
+            onClick={handleLogout}
+            style={styles.logoutBtn}
+            className="btn"
+          >
+            Logout
+          </button>
+        )}
       </Box>
       <Box style={styles.main}>
         <Box
@@ -39,11 +56,13 @@ export default function Homepage() {
               allowing access to support and relief programs for internally
               displaced persons
             </p>
-            <Box>
-              <a className="btn" href="/login" style={styles.loginBtn}>
-                Login
-              </a>
-            </Box>
+            {!auth && (
+              <Box>
+                <a className="btn" href="/login" style={styles.loginBtn}>
+                  Login
+                </a>
+              </Box>
+            )}
           </Box>
           <Box
             height="70%"
@@ -119,3 +138,9 @@ export default function Homepage() {
     </Box>
   );
 }
+
+const mapDispatchToProps = {
+  logout: logoutAction
+};
+
+export default connect(null, mapDispatchToProps)(Homepage);
