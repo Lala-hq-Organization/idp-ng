@@ -12,7 +12,7 @@ export default function DashCard(props) {
       margin="0em 0em 2.8em 0em"
       style={{ alignItems: 'center', minHeight: 'unset' }}
     >
-      <Card>
+      <Card background="linear-gradient(150deg, rgba(4, 202, 251, 1) 0%, rgba(54, 128, 215, 1) 90%)">
         <div>
           <Title>total candidates</Title>
           <Count>
@@ -23,7 +23,7 @@ export default function DashCard(props) {
           <LineChart />
         </IconContainer>
       </Card>
-      <Card>
+      <Card background="linear-gradient(162deg, rgba(24,139,101,1) 7%, rgba(42,198,146,1) 45%)">
         {' '}
         <div>
           <Title>total camps</Title>
@@ -33,7 +33,7 @@ export default function DashCard(props) {
           <LineChart />
         </IconContainer>
       </Card>
-      <Card>
+      <Card background="linear-gradient(150deg, rgba(4, 202, 251, 1) 0%, rgba(54, 128, 215, 1) 90%)">
         <div>
           <Title>total families</Title>
           <Count>
@@ -44,7 +44,7 @@ export default function DashCard(props) {
           <LineChart />
         </IconContainer>
       </Card>
-      <Card>
+      <Card background="linear-gradient(162deg, rgba(24,139,101,1) 7%, rgba(42,198,146,1) 45%)">
         <div>
           <Title>total children</Title>
           <Count>
@@ -64,13 +64,8 @@ const Card = styled.div`
   height: 7em;
   padding: 1rem;
   background: rgb(4, 202, 251);
-  background: linear-gradient(
-    150deg,
-    rgba(4, 202, 251, 1) 0%,
-    rgba(54, 128, 215, 1) 90%
-  );
+  background: ${props => props.background};
   color: #fff;
-  box-shadow: 0 1px 3px 0 cornflowerblue, 0 0 0 1px cornflowerblue;
   border-radius: 14px;
   margin-bottom: 0.5em;
 
@@ -85,6 +80,10 @@ const Card = styled.div`
   @media (min-width: 480px) {
     width: 14em;
     margin-right: 2em;
+  }
+
+  &:hover {
+    background: #683687;
   }
 `;
 
