@@ -2,7 +2,6 @@ export const styles = {
   container: {
     top: '2em',
     position: 'relative',
-    width: '90%',
     margin: '0 auto',
     height: '85%',
     overflowY: 'scroll'
