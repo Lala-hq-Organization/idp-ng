@@ -79,15 +79,21 @@ export const getCampsData = request => async dispatch => {
   }
 };
 
-// export const getFilterData = request => async dispatch => {
-//   try {
-//     dispatch(setLoading(true));
-//     const response = await request.get('/');
-//   } catch (err) {
-//     dispatch(setLoading(false));
-//     dispatch(onError(err));
-//   }
-// };
+export const getFilterData = (request, pageNum, values) => async dispatch => {
+  try {
+    dispatch(setLoading(true));
+    const response = await request.post(
+      `candidates/filter/?pageNum=${pageNum}`,
+      values
+    );
+    dispatch(getIndividuals(response.data));
+    dispatch(setLoading(false));
+    return;
+  } catch (err) {
+    dispatch(setLoading(false));
+    dispatch(onError(err));
+  }
+};
 
 export const clearErrorsAction = () => async dispatch => {
   dispatch(clearErr({}));
