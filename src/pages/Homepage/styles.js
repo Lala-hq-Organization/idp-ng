@@ -2,7 +2,7 @@ export const styles = {
   container: {
     padding: '1em 0.7em',
     width: '100%',
-    maxWidth: '150rem',
+    maxWidth: '125rem',
     margin: '0 auto'
   },
   main: {
@@ -50,7 +50,7 @@ export const styles = {
   midSection: {
     paddingTop: '9em',
     paddingBottom: '9em',
-    maxWidth: '105rem',
+    maxWidth: '100rem',
     fontFamily: 'Open Sans, sans-serif',
     flexWrap: 'wrap'
   },
@@ -78,7 +78,7 @@ export const styles = {
     right: '60px'
   },
   mapArea: { paddingTop: '3em', paddingBottom: '3em' },
-  footer: { padding: '4em 0em' },
+  footer: { padding: '5em 0em' },
   footerText: {
     width: '100%',
     maxWidth: '71rem'
