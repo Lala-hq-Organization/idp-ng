@@ -19,6 +19,7 @@ const App = props => {
   const size = useContext(ResponsiveContext);
 
   const { individuals } = useSelector(({ data }) => data);
+
   const candidates = () => {
     if (individuals.data) {
       return individuals.data.map(item => ({

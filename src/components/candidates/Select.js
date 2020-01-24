@@ -22,11 +22,3 @@ const App = props => {
 };
 
 export default App;
-
-///candidates/filter
-//{
-//   gender: string;
-//   date_added: 'string; only the date part';
-//   state: string;
-//   family: number;
-// }

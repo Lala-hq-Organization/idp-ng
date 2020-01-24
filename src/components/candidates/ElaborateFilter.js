@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Grid } from 'grommet';
 import { useSelector, connect } from 'react-redux';
 import request from '../../request';
@@ -17,12 +17,8 @@ import styles from './styles';
 import Button from './Button';
 
 const App = props => {
-  useEffect(() => {
-    props.getDashboardData(request);
-    props.getFamiliesData(request, props.pageNum);
-    props.getIndividualsData(request, props.pageNum);
-    props.getCampsData(request);
-  }, [props]);
+  // eslint-disable-next-line
+  const [pageNum, setPageNum] = useState(props.pageNum);
 
   const [values, setValues] = useState({
     gender: '',
@@ -31,14 +27,13 @@ const App = props => {
     family: ''
   });
 
-  const { dashboard, families, camps } = useSelector(({ data }) => data);
+  const { dashboard, families } = useSelector(({ data }) => data);
 
   let statesArr = dashboard[4] ? dashboard[4].states : [];
   let famArr = families.data ? families.data : [];
 
   const handleFilter = () => {
-    console.log({ values });
-    props.getFilterData(request, props.pageNum, values);
+    props.getFilterData(request, pageNum, values);
   };
 
   return (
@@ -59,50 +54,56 @@ const App = props => {
           <Select
             placeholder="Camps"
             id="camps"
-            options={camps.data}
-            values={values}
+            options={['Kano', 'LA', 'Lagos', 'Kebbi', 'Yola', 'Yobe']}
+            value={values.camps}
             setValues={setValues}
             name="camp"
+            values={values}
           />
           <Select
             placeholder="Family"
             id="family"
             name="family"
             options={getFamilyNames(famArr)}
-            values={values}
+            value={values.family}
             setValues={setValues}
+            values={values}
           />
           <Select
             placeholder="State"
             id="state"
             name="state"
             options={getState(statesArr)}
-            values={values}
+            value={values.state}
             setValues={setValues}
+            values={values}
           />
           <Select
             placeholder="Gender"
             id="gender"
             options={['Male', 'Female']}
-            values={values}
+            value={values.gender}
             setValues={setValues}
             name="gender"
+            values={values}
           />
           <Select
             placeholder="LGA"
             id="lga"
             options={['LGA', 'LGA']}
-            values={values}
+            value={values.lga}
             setValues={setValues}
             name="lga"
+            values={values}
           />
           <Select
             placeholder="Date"
             id="date_added"
             options={['Date1', 'Date2']}
-            values={values}
+            value={values['date_added']}
             setValues={setValues}
             name="date_added"
+            values={values}
           />
           <Button
             boxStyle={styles.go}

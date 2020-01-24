@@ -82,11 +82,10 @@ export const getCampsData = request => async dispatch => {
 export const getFilterData = (request, pageNum, values) => async dispatch => {
   try {
     dispatch(setLoading(true));
-    const response = await request.get(
-      `candidates/filter?pageNum=${pageNum}`,
+    const response = await request.post(
+      `candidates/filter/?pageNum=${pageNum}`,
       values
     );
-    console.log(response.data);
     dispatch(getIndividuals(response.data));
     dispatch(setLoading(false));
     return;
