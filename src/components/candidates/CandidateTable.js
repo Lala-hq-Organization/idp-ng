@@ -65,7 +65,10 @@ const Candidates = props => {
         name="Candidates"
       >
         {state.displayFilters ? (
-          <ElaborateFilter handleFilterDisplay={handleFilterDisplay} />
+          <ElaborateFilter
+            handleFilterDisplay={handleFilterDisplay}
+            pageNum={state.pageNum}
+          />
         ) : (
           <Filter
             align="center"
