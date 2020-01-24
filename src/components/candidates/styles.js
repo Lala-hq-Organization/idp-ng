@@ -69,25 +69,21 @@ export default {
   families: {
     padding: '0.5em 1.8em',
     height: '100%',
-    background: '#E8850F 0% 0% no-repeat padding-box',
     borderRadius: '4px',
     marginLeft: '2em',
     cursor: 'pointer',
     boxShadow: '0px 3px 6px #2C28281C'
   },
   familyText: {
-    color: '#ffffff',
     margin: 'auto'
   },
   individuals: {
     padding: '0.5em 1.8em',
     borderRadius: '4px',
-    border: '1px solid #7764E4',
     boxShadow: '0px 3px 6px #2C28281C',
     cursor: 'pointer'
   },
   individualsText: {
-    color: '#9A50C8',
     margin: 'auto'
   },
   exportData: {
@@ -102,7 +98,7 @@ export default {
   },
   exportDataText: {
     color: '#7764E4',
-    margin: 'auto'
+    marginLeft: 'auto'
   },
   elaborateFilterBox: {
     background: '#ffffff',
@@ -129,7 +125,6 @@ export default {
   pageBox: {
     padding: '0.3em 0em',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
     alignItems: 'center'
   }
 };

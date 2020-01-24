@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { Box, DataTable, Text } from 'grommet';
+import React, { useState, useCallback, useContext } from 'react';
+import { Box, DataTable, Text, ResponsiveContext } from 'grommet';
 import { connect, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import { FormNext, FormPrevious } from 'grommet-icons';
@@ -15,6 +15,7 @@ import './paginate.css';
 const Candidates = props => {
   const [pageNum, setPageNum] = useState(null);
   const { families } = useSelector(({ data }) => data);
+  const size = useContext(ResponsiveContext);
 
   const familiesData = useCallback(() => {
     if (families.data) {
@@ -40,6 +41,10 @@ const Candidates = props => {
     props.setContState({ ...props.contState, pageNum: selected + 1 });
     props.getFamiliesData(request, pageNum);
   };
+
+  const pageCount = families.count
+    ? Math.ceil(families.count.families / 7)
+    : 10;
 
   return (
     <>
@@ -79,15 +84,20 @@ const Candidates = props => {
           }}
         />
       </Box>
-      <Box style={styles.pageBox}>
+      <Box
+        style={{
+          ...styles.pageBox,
+          justifyContent: size === 'small' ? 'center' : 'flex-end'
+        }}
+      >
         <ReactPaginate
           previousLabel={<FormPrevious />}
           nextLabel={<FormNext />}
           breakLabel={'...'}
           breakClassName={'break-me'}
-          pageCount={28}
+          pageCount={pageCount}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={2}
           onPageChange={handlePageClick}
           containerClassName={'paginateContainer'}
           pageClassName="page-links"
@@ -95,8 +105,6 @@ const Candidates = props => {
           previousLinkClassName="previous-btn-link"
           nextClassName="previous-btn"
           nextLinkClassName="previous-btn-link"
-          // subContainerClassName={'pages pagination'}
-          // activeClassName={'active'}
         />
       </Box>
     </>

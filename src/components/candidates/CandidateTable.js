@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Box, ResponsiveContext } from 'grommet';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import { CSVLink } from 'react-csv';
 
 import Layout from '../layout/Layout';
 import styles from './styles';
@@ -22,6 +23,9 @@ const Candidates = props => {
     displayFilters: false,
     showTable: false
   });
+
+  const reduxData = useSelector(({ data }) => data);
+  const csvData = state.showTable ? reduxData.individuals : reduxData.families;
 
   const size = useContext(ResponsiveContext);
 
@@ -81,24 +85,47 @@ const Candidates = props => {
             >
               <Box direction="row" justify="between" style={styles.btnBox}>
                 <Button
-                  boxStyle={styles.individuals}
+                  boxStyle={{
+                    ...styles.individuals,
+                    background: state.showTable
+                      ? '#E8850F 0% 0% no-repeat padding-box'
+                      : '',
+                    color: state.showTable ? '#fff' : '#9A50C8'
+                  }}
                   handleButton={showIndividual}
                   textStyle={styles.individualsText}
                   text="Individuals"
                 />
                 <Button
-                  boxStyle={styles.families}
+                  boxStyle={{
+                    ...styles.families,
+                    background: !state.showTable
+                      ? '#E8850F 0% 0% no-repeat padding-box'
+                      : '',
+                    color: !state.showTable ? '#fff' : '#9A50C8'
+                  }}
                   handleButton={hideIndividual}
                   textStyle={styles.familyText}
                   text="Families"
                 />
               </Box>
-              <Button
-                boxStyle={styles.exportData}
-                // handleButton={setFamilyTable}
-                textStyle={styles.exportDataText}
-                text="Export Data"
-              />
+              {Object.keys(csvData).length === 0 ? (
+                <div style={{ ...styles.exportData, ...styles.exportDataText }}>
+                  loading
+                </div>
+              ) : (
+                <CSVLink
+                  style={{ ...styles.exportData, ...styles.exportDataText }}
+                  data={csvData.data.map(data => {
+                    const { id, ...rest } = data;
+                    return rest;
+                  })}
+                  filename={'data.csv'}
+                  target="_blank"
+                >
+                  Export Data
+                </CSVLink>
+              )}
             </Box>
           ) : (
             <AlternateTableMenu
