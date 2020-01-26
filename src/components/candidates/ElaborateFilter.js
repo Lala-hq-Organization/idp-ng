@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
+import { Box } from 'grommet';
+import styled from 'styled-components';
 
 import Select from './Select';
 import Filter from './Filter';
@@ -14,30 +15,29 @@ const App = props => {
         style={styles.filter2}
         handleFilterDisplay={props.handleFilterDisplay}
       />
-      <Box>
-        <Grid
-          columns={{
-            count: 4,
-            size: 'auto'
-          }}
-          gap="small"
-        >
-          <Select placeholder="Camps" id="camps" />
-          <Select placeholder="Family" id="family" />
-          <Select placeholder="State" id="state" />
-          <Select placeholder="Gender" id="gender" />
-          <Select placeholder="LGA" id="lga" />
-          <Select placeholder="Date" id="date" />
-          <Button
-            boxStyle={styles.go}
-            // handleButton={setIndividualTable}
-            textStyle={styles.goText}
-            text="Go"
-          />
-        </Grid>
-      </Box>
+      <CardBox>
+        <Select placeholder="Camps" id="camps" />
+        <Select placeholder="Family" id="family" />
+        <Select placeholder="State" id="state" />
+        <Select placeholder="Gender" id="gender" />
+        <Select placeholder="LGA" id="lga" />
+        <Select placeholder="Date" id="date" />
+        <Button
+          boxStyle={styles.go}
+          // handleButton={setIndividualTable}
+          textStyle={styles.goText}
+          text="Go"
+        />
+      </CardBox>
     </Box>
   );
 };
+
+const CardBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+  grid-gap: 2.5em;
+  align-items: stretch;
+`;
 
 export default App;

@@ -1,11 +1,11 @@
 export const styles = {
   container: {
-    top: '2.5em',
     position: 'relative',
     width: '85%',
     marginLeft: '3em',
+    marginTop: '4em',
     borderRadius: '3px',
-    height: '84%',
+    height: '89%',
     overflowY: 'scroll'
   },
   imageBox: { height: '35em' },

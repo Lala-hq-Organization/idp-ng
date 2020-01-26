@@ -102,17 +102,18 @@ export default {
   },
   elaborateFilterBox: {
     background: '#ffffff',
-    margin: '1em 0',
+    margin: '1em 0 2em',
     padding: '1em',
     borderRadius: '8px',
     display: 'flex',
-    flex: '1 0 235px',
+    width: '100%',
     boxShadow: '0px 3px 6px #0000000D'
   },
   go: {
     borderRadius: '4px',
     border: '1px solid #6F3895',
     boxShadow: '0px 3px 6px #2C28281C',
+    padding: '0.4em',
     cursor: 'pointer',
     width: '50%'
   },

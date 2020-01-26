@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import { ResponsiveContext } from 'grommet';
+import React from 'react';
 import styled from 'styled-components';
 import { LineChart, BarChart } from 'grommet-icons';
 
 export default function DashCard(props) {
   const { dashboard } = props;
-  const size = useContext(ResponsiveContext);
 
   return (
     <CardBox>
