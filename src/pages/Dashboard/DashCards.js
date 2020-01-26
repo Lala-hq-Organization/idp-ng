@@ -6,7 +6,6 @@ import { LineChart, BarChart } from 'grommet-icons';
 export default function DashCard(props) {
   const { dashboard } = props;
   const size = useContext(ResponsiveContext);
-  console.log(size);
 
   return (
     <CardBox>

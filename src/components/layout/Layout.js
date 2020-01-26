@@ -19,9 +19,9 @@ const App = props => {
   };
 
   return (
-    <Grommet full theme={grommet}>
+    <Grommet full={true} theme={grommet}>
       <Grid
-        fill
+        fill={true}
         rows={['auto', 'flex']}
         columns={['auto', 'flex']}
         areas={[

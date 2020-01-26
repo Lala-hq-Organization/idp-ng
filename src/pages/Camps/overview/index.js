@@ -43,7 +43,7 @@ const CardBox = styled.div`
   display: grid;
   align-items: center;
   grid-gap: 2em;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
   margin-bottom: 4em;
 `;
 
