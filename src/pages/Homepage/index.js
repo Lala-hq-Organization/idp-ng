@@ -43,7 +43,13 @@ function Homepage(props) {
           justify="between"
           align="center"
         >
-          <Box style={styles.heroLeftSection} direction="column">
+          <Box
+            style={{
+              ...styles.heroLeftSection,
+              top: size === 'xsmall' || size === 'small' ? '-7em' : '-5em'
+            }}
+            direction="column"
+          >
             <Heading style={styles.heroTitle}>
               Collating Data of IDPs in Nigeria
             </Heading>

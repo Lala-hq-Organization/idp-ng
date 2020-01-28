@@ -9,7 +9,7 @@ export const styles = {
     color: '#F8FBFD',
     textShadow: '0px 3px 6px #00000029'
   },
-  heroLeftSection: { flex: '1 1 46%', top: '-3em' },
+  heroLeftSection: { flex: '1 1 46%', position: 'relative' },
   heroRightSection: { flex: '0 1 40%' },
   heroTitle: {
     fontSize: '5rem',
