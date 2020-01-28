@@ -5,16 +5,11 @@ export const styles = {
     maxWidth: '125rem',
     margin: '0 auto'
   },
-  main: {
-    background:
-      'transparent radial-gradient(closest-side at 71% 41%, #9D52CC 0%, #4F2966 100%) 0% 0% no-repeat padding-box',
-    padding: '5em 0em'
-  },
   hero: {
     color: '#F8FBFD',
     textShadow: '0px 3px 6px #00000029'
   },
-  heroLeftSection: { flex: '1 1 46%' },
+  heroLeftSection: { flex: '1 1 46%', top: '-3em' },
   heroRightSection: { flex: '0 1 40%' },
   heroTitle: {
     fontSize: '5rem',

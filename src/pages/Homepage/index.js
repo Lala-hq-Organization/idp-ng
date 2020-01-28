@@ -5,9 +5,9 @@ import { useSelector, connect } from 'react-redux';
 import logoutAction from '../../components/Login/logout.action';
 
 import Logo from '../../assets/logo2x.png';
-import undraw from '../../assets/undraw.svg';
-import map from '../../assets/map.svg';
+import map from '../../assets/map.png';
 import { styles } from './styles';
+import './styles.css';
 
 function Homepage(props) {
   const size = useContext(ResponsiveContext);
@@ -36,7 +36,7 @@ function Homepage(props) {
           </button>
         )}
       </Box>
-      <Box style={styles.main}>
+      <Box className="main">
         <Box
           direction="row"
           style={{ ...styles.container, ...styles.hero }}
@@ -70,9 +70,7 @@ function Homepage(props) {
               ...styles.heroRightSection,
               display: size === 'small' || size === 'xsmall' ? 'none' : ''
             }}
-          >
-            <Image fill src={undraw} alt="hero image" />
-          </Box>
+          ></Box>
         </Box>
       </Box>
       <Box background="#F8FBFD 0% 0% no-repeat padding-box">
