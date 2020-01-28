@@ -9,7 +9,11 @@ import Filter from './Filter';
 import ElaborateFilter from './ElaborateFilter';
 import Button from './Button';
 import AlternateTableMenu from './AlternateTableMenu';
-import { getIndividualsData, getFamiliesData } from '../data/data.action';
+import {
+  getIndividualsData,
+  getFamiliesData,
+  getDashboardData
+} from '../data/data.action';
 import request from '../../request';
 
 import FamiliesTable from './FamiliesTable';
@@ -34,7 +38,7 @@ const Candidates = props => {
   };
 
   const hideIndividual = () => {
-    setState({ ...state, showTable: false });
+    setState({ ...state, showTable: false, displayFilters: false });
   };
 
   const handleFilterDisplay = () => {
@@ -49,6 +53,7 @@ const Candidates = props => {
       props.getFamiliesData(request, state.pageNum);
     } else {
       props.getIndividualsData(request, state.pageNum);
+      props.allData(request);
     }
   }, [props, state]);
 
@@ -65,17 +70,25 @@ const Candidates = props => {
         name="Candidates"
       >
         {state.displayFilters ? (
-          <ElaborateFilter handleFilterDisplay={handleFilterDisplay} />
-        ) : (
-          <Filter
-            align="center"
-            justify="start"
-            pad="large"
-            style={styles.filter}
+          <ElaborateFilter
             handleFilterDisplay={handleFilterDisplay}
+            pageNum={state.pageNum}
           />
+        ) : (
+          state.showTable && (
+            <Filter
+              align="center"
+              justify="start"
+              pad="large"
+              style={styles.filter}
+              handleFilterDisplay={handleFilterDisplay}
+            />
+          )
         )}
-        <Box style={styles.table}>
+        <Box
+          style={styles.table}
+          margin={{ top: state.showTable === false ? 'large' : null }}
+        >
           {size === 'large' || size === 'medium' ? (
             <Box
               direction="row"
@@ -147,7 +160,8 @@ const Candidates = props => {
 
 const mapDispatchToProps = {
   getIndividualsData,
-  getFamiliesData
+  getFamiliesData,
+  allData: getDashboardData
 };
 
 export default connect(null, mapDispatchToProps)(Candidates);
