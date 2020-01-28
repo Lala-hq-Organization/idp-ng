@@ -1,14 +1,14 @@
 import React, { useEffect, useContext } from 'react';
-import { Box, Image, ResponsiveContext } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 import styled from 'styled-components';
 import { connect, useSelector } from 'react-redux';
 import { getCampsData } from '../../../components/data/data.action';
+import GoogleMapImage from './map';
 import request from '../../../request';
 
 import DashCard from './DashCards';
 
 import { styles } from './styles';
-import states from '../../../assets/states.png';
 
 function States(props) {
   const size = useContext(ResponsiveContext);
@@ -33,7 +33,7 @@ function States(props) {
         <DashCard campData={camps} />
       </CardBox>
       <Box style={styles.imageBox}>
-        <Image src={states} fit="cover" style={styles.image} />
+        <GoogleMapImage />
       </Box>
     </Box>
   );
