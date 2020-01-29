@@ -38,7 +38,7 @@ export default {
     boxShadow: '0px 3px 6px #2C28281C'
   },
   formButton: {
-    background: '#6EA23C 0% 0% no-repeat padding-box',
+    // background: '#6EA23C 0% 0% no-repeat padding-box',
     padding: '0.5em 1.8em',
 
     cursor: 'pointer',
