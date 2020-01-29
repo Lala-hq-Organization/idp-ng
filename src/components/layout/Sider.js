@@ -25,15 +25,28 @@ const Sidebar = () => (
         </Text>
       </Box>
       <hr style={{ width: '100%', border: '0.5px solid #fff' }} />
-      {list.map(item => (
-        <Link to={Object.values(item)[0]} key={Object.keys(item)[0]}>
-          <Button key={Object.keys(item)[0]} hoverIndicator>
-            <Box pad={{ horizontal: 'medium', vertical: 'small' }}>
-              <Text color="#fff">{Object.keys(item)[0]}</Text>
-            </Box>
-          </Button>
-        </Link>
-      ))}
+      <Box style={styles.sideItemBox}>
+        {list.map(item => (
+          <Link to={Object.values(item)[0][0]} key={Object.keys(item)[0]}>
+            <Button key={Object.keys(item)[0]} hoverIndicator>
+              <Box
+                pad={{ horizontal: 'medium', vertical: 'medium' }}
+                direction="row"
+              >
+                {Object.values(item)[0][1]}
+                <Text
+                  color="#fff"
+                  alignSelf="start"
+                  margin={{ left: 'small' }}
+                  weight="bold"
+                >
+                  {Object.keys(item)[0]}
+                </Text>
+              </Box>
+            </Button>
+          </Link>
+        ))}
+      </Box>
     </Box>
   </>
 );
