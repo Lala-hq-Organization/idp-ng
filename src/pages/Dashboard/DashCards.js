@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from 'grommet';
 import styled from 'styled-components';
 import { LineChart, BarChart } from 'grommet-icons';
 
@@ -7,11 +6,7 @@ export default function DashCard(props) {
   const { dashboard } = props;
 
   return (
-    <Box
-      direction="row-responsive"
-      margin="0em 0em 2.8em 0em"
-      style={{ alignItems: 'center', minHeight: 'unset' }}
-    >
+    <CardBox>
       <Card background="linear-gradient(150deg, rgba(4, 202, 251, 1) 0%, rgba(54, 128, 215, 1) 90%)">
         <div>
           <Title>total candidates</Title>
@@ -55,32 +50,30 @@ export default function DashCard(props) {
           <BarChart />
         </IconContainer>
       </Card>
-    </Box>
+    </CardBox>
   );
 }
 
+const CardBox = styled.div`
+  display: grid;
+  align-items: center;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  margin-bottom: 3em;
+`;
+
 const Card = styled.div`
-  width: 17em;
-  height: 7em;
-  padding: 1rem;
+  flex: 1 1 17em;
+  min-width: 16em;
+  padding: 1.5em 2em;
   background: rgb(4, 202, 251);
   background: ${props => props.background};
   color: #fff;
   border-radius: 14px;
-  margin-bottom: 0.5em;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  @media (min-width: 480px) {
-    width: 14em;
-    margin-right: 2em;
-  }
 
   &:hover {
     background: #683687;

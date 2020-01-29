@@ -1,13 +1,14 @@
 import React, { useEffect, useContext } from 'react';
-import { Box, Image, ResponsiveContext } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
+import styled from 'styled-components';
 import { connect, useSelector } from 'react-redux';
 import { getCampsData } from '../../../components/data/data.action';
+import GoogleMapImage from './map';
 import request from '../../../request';
 
 import DashCard from './DashCards';
 
 import { styles } from './styles';
-import states from '../../../assets/states.png';
 
 function States(props) {
   const size = useContext(ResponsiveContext);
@@ -28,19 +29,23 @@ function States(props) {
       }}
       direction="column"
     >
-      <Box
-        direction="row"
-        wrap={true}
-        style={{ marginBottom: '5em', minHeight: 'unset' }}
-      >
+      <CardBox>
         <DashCard campData={camps} />
-      </Box>
+      </CardBox>
       <Box style={styles.imageBox}>
-        <Image src={states} fit="cover" style={styles.image} />
+        <GoogleMapImage />
       </Box>
     </Box>
   );
 }
+
+const CardBox = styled.div`
+  display: grid;
+  align-items: center;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+  margin-bottom: 4em;
+`;
 
 const mapDispatchToProps = {
   campData: getCampsData

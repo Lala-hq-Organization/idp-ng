@@ -1,9 +1,8 @@
 export const styles = {
   container: {
-    top: '2em',
     position: 'relative',
     margin: '0 auto',
-    height: '85%',
+    height: '89%',
     overflowY: 'scroll'
   },
   chartBox: { marginTop: '4em' },

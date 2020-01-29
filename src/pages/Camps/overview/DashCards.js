@@ -38,12 +38,6 @@ const Card = styled.div`
   color: #fff;
   box-shadow: 0 1px 3px 0 cornflowerblue, 0 0 0 1px cornflowerblue;
   border-radius: 14px;
-  margin-right: 2em;
-  margin-top: 1em;
-
-  &:last-child {
-    margin-right: 0;
-  }
 `;
 
 const Title = styled.h3`

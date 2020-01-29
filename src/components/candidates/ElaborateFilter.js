@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Grid } from 'grommet';
+import { Box } from 'grommet';
+import styled from 'styled-components';
 import { useSelector, connect } from 'react-redux';
 import request from '../../request';
 
@@ -43,79 +44,78 @@ const App = props => {
         style={styles.filter2}
         handleFilterDisplay={props.handleFilterDisplay}
       />
-      <Box>
-        <Grid
-          columns={{
-            count: 4,
-            size: 'auto'
-          }}
-          gap="small"
-        >
-          <Select
-            placeholder="Camps"
-            id="camps"
-            options={['Kano', 'LA', 'Lagos', 'Kebbi', 'Yola', 'Yobe']}
-            value={values.camps}
-            setValues={setValues}
-            name="camp"
-            values={values}
-          />
-          <Select
-            placeholder="Family"
-            id="family"
-            name="family"
-            options={getFamilyNames(famArr)}
-            value={values.family}
-            setValues={setValues}
-            values={values}
-          />
-          <Select
-            placeholder="State"
-            id="state"
-            name="state"
-            options={getState(statesArr)}
-            value={values.state}
-            setValues={setValues}
-            values={values}
-          />
-          <Select
-            placeholder="Gender"
-            id="gender"
-            options={['Male', 'Female']}
-            value={values.gender}
-            setValues={setValues}
-            name="gender"
-            values={values}
-          />
-          <Select
-            placeholder="LGA"
-            id="lga"
-            options={['LGA', 'LGA']}
-            value={values.lga}
-            setValues={setValues}
-            name="lga"
-            values={values}
-          />
-          <Select
-            placeholder="Date"
-            id="date_added"
-            options={['Date1', 'Date2']}
-            value={values['date_added']}
-            setValues={setValues}
-            name="date_added"
-            values={values}
-          />
-          <Button
-            boxStyle={styles.go}
-            handleButton={handleFilter}
-            textStyle={styles.goText}
-            text="Go"
-          />
-        </Grid>
-      </Box>
+      <CardBox>
+        <Select
+          placeholder="Camps"
+          id="camps"
+          options={['Kano', 'LA', 'Lagos', 'Kebbi', 'Yola', 'Yobe']}
+          value={values.camps}
+          setValues={setValues}
+          name="camp"
+          values={values}
+        />
+        <Select
+          placeholder="Family"
+          id="family"
+          name="family"
+          options={getFamilyNames(famArr)}
+          value={values.family}
+          setValues={setValues}
+          values={values}
+        />
+        <Select
+          placeholder="State"
+          id="state"
+          name="state"
+          options={getState(statesArr)}
+          value={values.state}
+          setValues={setValues}
+          values={values}
+        />
+        <Select
+          placeholder="Gender"
+          id="gender"
+          options={['Male', 'Female']}
+          value={values.gender}
+          setValues={setValues}
+          name="gender"
+          values={values}
+        />
+        <Select
+          placeholder="LGA"
+          id="lga"
+          options={['LGA', 'LGA']}
+          value={values.lga}
+          setValues={setValues}
+          name="lga"
+          values={values}
+        />
+        <Select
+          placeholder="Date"
+          id="date_added"
+          options={['Date1', 'Date2']}
+          value={values['date_added']}
+          setValues={setValues}
+          name="date_added"
+          values={values}
+        />
+        <Button
+          boxStyle={styles.go}
+          handleButton={handleFilter}
+          textStyle={styles.goText}
+          text="Go"
+        />
+      </CardBox>
     </Box>
   );
 };
+
+const CardBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-gap: 1em;
+  align-items: stretch;
+`;
 
 const getState = arr => {
   return arr.map(item => item.state);
