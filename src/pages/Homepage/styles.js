@@ -28,8 +28,9 @@ export const styles = {
   },
   loginBtn: {
     color: '#fff',
-    background: '#FAB315 0% 0% no-repeat padding-box',
-    borderColor: '#FAB315',
+    background: '#6EA23C 0% 0% no-repeat padding-box',
+
+    borderColor: '#6EA23C',
     borderRadius: '50px',
     padding: '0.3em 0em',
     fontSize: '2.3rem',
@@ -38,7 +39,7 @@ export const styles = {
   },
   logoutBtn: {
     marginLeft: 'auto',
-    background: '#E8850F',
+    background: '#6EA23C',
     color: '#fff',
     fontSize: '1.8rem'
   },

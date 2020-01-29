@@ -118,8 +118,6 @@ const App = props => {
           previousLinkClassName="previous-btn-link"
           nextClassName="previous-btn"
           nextLinkClassName="previous-btn-link"
-          // subContainerClassName={'pages pagination'}
-          // activeClassName={'active'}
         />
       </Box>
     </>

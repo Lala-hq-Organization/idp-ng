@@ -47,10 +47,12 @@ const App = props => {
               <Text
                 style={{
                   ...styles.pageHeaderText,
-                  fontSize: size === 'xsmall' ? '2rem' : '2.5em'
+                  fontSize: size === 'xsmall' ? '1.5rem' : '2em'
                 }}
               >
-                {props.children.props !== undefined
+                {props.children.props.name === undefined
+                  ? 'Camps'
+                  : props.children.props !== undefined
                   ? props.children.props.name
                   : 'Page Header'}
               </Text>

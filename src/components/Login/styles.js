@@ -29,13 +29,18 @@ export default {
     color: 'red',
     margin: '0 auto'
   },
-  btn: { backgroundColor: '#6EA23C', margin: '0 auto' },
+  btn: {
+    backgroundColor: '#6EA23C',
+    margin: ' auto',
+    width: '327px',
+    height: ' 65px',
+    borderRadius: '25px',
+    boxShadow: '0px 3px 6px #2C28281C'
+  },
   formButton: {
-    background: '#6EA23C',
+    // background: '#6EA23C 0% 0% no-repeat padding-box',
     padding: '0.5em 1.8em',
-    borderRadius: '4px',
 
-    boxShadow: '0px 3px 6px #2C28281C',
     cursor: 'pointer',
     margin: '0 auto'
   },

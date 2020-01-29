@@ -3,7 +3,8 @@ export default {
     position: 'relative',
     display: 'flex',
     justifyContent: 'flex-start',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    marginBottom: ' 90px'
   },
   table: {
     backgroundColor: '#ffffff',
