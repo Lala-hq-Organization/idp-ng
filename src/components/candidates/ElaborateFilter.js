@@ -48,7 +48,7 @@ const App = props => {
         <Select
           placeholder="Camps"
           id="camps"
-          options={['Kano', 'LA', 'Lagos', 'Kebbi', 'Yola', 'Yobe']}
+          options={['Kano', 'LA', 'Lagos', 'Kebbi', 'Yola', 'Yobe', 'None']}
           value={values.camps}
           setValues={setValues}
           name="camp"
@@ -58,7 +58,7 @@ const App = props => {
           placeholder="Family"
           id="family"
           name="family"
-          options={getFamilyNames(famArr)}
+          options={[...getFamilyNames(famArr), 'None']}
           value={values.family}
           setValues={setValues}
           values={values}
@@ -67,7 +67,7 @@ const App = props => {
           placeholder="State"
           id="state"
           name="state"
-          options={getState(statesArr)}
+          options={[...getState(statesArr), 'None']}
           value={values.state}
           setValues={setValues}
           values={values}
@@ -75,7 +75,7 @@ const App = props => {
         <Select
           placeholder="Gender"
           id="gender"
-          options={['Male', 'Female']}
+          options={['Male', 'Female', 'None']}
           value={values.gender}
           setValues={setValues}
           name="gender"
@@ -84,7 +84,7 @@ const App = props => {
         <Select
           placeholder="LGA"
           id="lga"
-          options={['LGA', 'LGA']}
+          options={['LGA', 'LG', 'None']}
           value={values.lga}
           setValues={setValues}
           name="lga"
@@ -93,7 +93,7 @@ const App = props => {
         <Select
           placeholder="Date"
           id="date_added"
-          options={['Date1', 'Date2']}
+          options={['Date1', 'Date2', 'None']}
           value={values['date_added']}
           setValues={setValues}
           name="date_added"
@@ -106,6 +106,17 @@ const App = props => {
           text="Go"
         />
       </CardBox>
+      {/* <Box>
+        <Grid
+          columns={{
+            count: 4,
+            size: 'auto'
+          }}
+          gap="small"
+        >
+          
+        </Grid>
+      </Box> */}
     </Box>
   );
 };
