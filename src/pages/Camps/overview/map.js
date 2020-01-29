@@ -33,6 +33,6 @@ const Loader = () => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAfAQjXgNQBKAjjj62X1tkJkfVPwSjLd5Y',
+  apiKey: 'AIzaSyArvD0YkgD-ZjHcPbdlidNCPXxsXjtYf9Q',
   LoadingContainer: Loader
 })(MapContainer);
