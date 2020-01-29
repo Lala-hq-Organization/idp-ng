@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Box, ResponsiveContext } from 'grommet';
 import { connect, useSelector } from 'react-redux';
 import { CSVLink } from 'react-csv';
+import BarLoader from 'react-spinners/BarLoader';
+import { css } from 'styled-components';
 
 import Layout from '../layout/Layout';
 import styles from './styles';
@@ -21,6 +23,13 @@ import IndividualTable from './IndividualTable';
 
 import './paginate.css';
 
+const override = css`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 const Candidates = props => {
   const [state, setState] = useState({
     pageNum: null,
@@ -29,6 +38,7 @@ const Candidates = props => {
   });
 
   const reduxData = useSelector(({ data }) => data);
+  const { loading } = useSelector(({ user }) => user);
   const csvData = state.showTable ? reduxData.individuals : reduxData.families;
 
   const size = useContext(ResponsiveContext);
@@ -146,7 +156,7 @@ const Candidates = props => {
               handleIndividuals={showIndividual}
             />
           )}
-
+          {loading && <BarLoader css={override} size={30} color={'#9D52CC'} />}
           {state.showTable ? (
             <IndividualTable contState={state} setContState={setState} />
           ) : (
