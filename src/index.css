@@ -52,3 +52,9 @@ ul {
   -ms-user-select: none;
   user-select: none;
 }
+
+.btn:hover {
+  background: #fab315 !important;
+  color: white;
+  border: #fab315;
+}
