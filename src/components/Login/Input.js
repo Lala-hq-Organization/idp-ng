@@ -27,7 +27,7 @@ const App = props => {
                   ? '239px'
                   : 'medium'
               }
-              margin="medium"
+              margin={size === 'xsmall' ? '20px auto' : 'medium'}
               pad="small"
             >
               <TextInput

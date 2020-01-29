@@ -40,7 +40,7 @@ const App = props => {
                 ...styles.form,
                 height:
                   size === 'xsmall'
-                    ? '80%'
+                    ? '100%'
                     : size === 'medium' || 'small'
                     ? '70%'
                     : '50%'
@@ -108,9 +108,18 @@ const App = props => {
                         formikError={formik.errors.password}
                         label="password"
                       />
-                      <button style={styles.btn}>
+                      <button
+                        className="btn"
+                        style={{
+                          ...styles.btn,
+                          margin: size === 'xsmall' ? '2em' : '1em auto',
+                          width: size === 'xsmall' ? '220px' : '327px'
+                        }}
+                      >
                         <Button
-                          boxStyle={styles.formButton}
+                          boxStyle={{
+                            ...styles.formButton
+                          }}
                           handleButton={loading ? null : formik.handleSubmit}
                           textStyle={styles.formButtonText}
                           text={
