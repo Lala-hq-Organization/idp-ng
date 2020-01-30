@@ -33,11 +33,20 @@ function States(props) {
         <DashCard campData={camps} />
       </CardBox>
       <Box style={styles.imageBox}>
-        <GoogleMapImage />
+        <GoogleMapImage locations={locations} />
       </Box>
     </Box>
   );
 }
+
+const locations = [
+  { title: 'Kano', coords: { lat: 12.0, lng: 8.516667 } },
+  { title: 'Yobe', coords: { lat: 12.0, lng: 11.5 } },
+  { title: 'Lagos', coords: { lat: 6.465422, lng: 3.406448 } },
+  { title: 'Yola', coords: { lat: 9.203496, lng: 12.49539 } },
+  { title: 'Kebbi', coords: { lat: 12.466078, lng: 4.199524 } },
+  { title: 'Sapele', coords: { lat: 5.9, lng: 5.666667 } }
+];
 
 const CardBox = styled.div`
   display: grid;

@@ -36,7 +36,10 @@ function Homepage(props) {
           </button>
         )}
       </Box>
-      <Box className="main">
+      <Box
+        className="main"
+        style={{ paddingBottom: size === 'xsmall' ? '4em' : null }}
+      >
         <Box
           direction="row"
           style={{ ...styles.container, ...styles.hero }}
@@ -46,7 +49,7 @@ function Homepage(props) {
           <Box
             style={{
               ...styles.heroLeftSection,
-              top: size === 'xsmall' || size === 'small' ? '-7em' : '-5em'
+              top: size === 'xsmall' || size === 'small' ? '-10em' : '-5em'
             }}
             direction="column"
           >
