@@ -16,7 +16,7 @@ export default function PieChart(props) {
 
   return (
     <Chart
-      options={options}
+      options={{ ...options, labels: props.labels }}
       series={getSeries()}
       type="donut"
       style={styles.barChart}
@@ -28,7 +28,6 @@ const options = {
   chart: {
     type: 'donut'
   },
-  labels: ['single', 'married'],
   dataLabels: {
     enabled: false
   },

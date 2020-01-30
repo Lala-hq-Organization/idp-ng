@@ -19,10 +19,10 @@ export default function Charts(props) {
         justify="between"
       >
         <Box className="pie-chart" height="48%">
-          <PieChart dashboard={dashboard} />
+          <PieChart dashboard={dashboard} labels={['single', 'married']} />
         </Box>
         <Box className="pie-chart" height="48%">
-          <PieChart dashboard={dashboard} />
+          <PieChart dashboard={dashboard} labels={['male', 'female']} />
         </Box>
       </Box>
     </Box>
