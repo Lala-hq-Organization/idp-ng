@@ -27,9 +27,14 @@ const styles = {
   },
   adminText: {
     color: '#fff',
-    fontWeight: 600,
-    fontSize: '23px',
+    fontWeight: 'inherit',
+    fontSize: '21px',
     textAlign: 'center',
+    margin: '0.5em'
+  },
+  sideItemBox: {
+    display: 'flex',
+    justifyContent: 'flex-start',
     marginTop: '1em'
   },
   pageHeaderText: { color: '#4D4F5C', fontWeight: 600, fontSize: '5rem' }
