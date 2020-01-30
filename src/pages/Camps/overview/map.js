@@ -3,22 +3,32 @@ import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import CircleLoader from 'react-spinners/CircleLoader';
 import { css } from 'styled-components';
 
-export class MapContainer extends React.Component {
-  render() {
-    return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        initialCenter={{ lat: 9.072264, lng: 7.491302 }}
-      >
+function MapContainer(props) {
+  const displayMarkers = () => {
+    return props.locations.map((location, index) => {
+      return (
         <Marker
-          title={'The marker`s title will appear as a tooltip.'}
-          name={'Kano'}
-          position={{ lat: 12.0, lng: 8.516667 }}
+          key={index}
+          id={index}
+          title={location.title}
+          position={{
+            lat: location.coords.lat,
+            lng: location.coords.lng
+          }}
         />
-      </Map>
-    );
-  }
+      );
+    });
+  };
+
+  return (
+    <Map
+      google={props.google}
+      zoom={7}
+      initialCenter={{ lat: 9.072264, lng: 7.491302 }}
+    >
+      {displayMarkers()}
+    </Map>
+  );
 }
 
 const override = css`
