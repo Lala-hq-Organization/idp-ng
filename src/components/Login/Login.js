@@ -26,6 +26,7 @@ const App = props => {
   return (
     <ResponsiveContext.Consumer>
       {size => {
+        console.log(size);
         return (
           <Box style={styles.formBox} pad="large">
             <Box style={{ ...layoutStyles.logo, ...styles.logo }}>
@@ -42,7 +43,7 @@ const App = props => {
                   size === 'xsmall'
                     ? '100%'
                     : size === 'medium' || 'small'
-                    ? '70%'
+                    ? '80%'
                     : '50%'
               }}
             >
@@ -113,7 +114,12 @@ const App = props => {
                         style={{
                           ...styles.btn,
                           margin: size === 'xsmall' ? '2em' : '1em auto',
-                          width: size === 'xsmall' ? '220px' : '327px'
+                          width:
+                            size === 'xsmall'
+                              ? '220px'
+                              : size === 'small'
+                              ? '294px'
+                              : '327px'
                         }}
                       >
                         <Button
