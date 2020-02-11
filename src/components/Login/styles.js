@@ -1,5 +1,5 @@
 export default {
-  formBox: {
+  loginContainer: {
     background: '#F8FBFD 0% 0% no-repeat padding-box',
     boxShadow: '0px 3px 6px #0000001A',
     display: 'flex',
@@ -7,14 +7,16 @@ export default {
     justifyContent: 'center',
     height: '100vh'
   },
+  formContainer: { width: '100%', maxWidth: '27em' },
   form: {
     background: '#FFFFFF 0% 0% no-repeat padding-box',
     padding: '4em 0em 0em 0em',
-    boxShadow: '0px 3px 6px #0000001A'
+    boxShadow: '0px 3px 6px #0000001A',
+    width: '100%',
+    maxWidth: '27em'
   },
   innerFormBox: {
     alignItems: 'center',
-    padding: '2em 0',
     borderTop: '1px solid #0000001A'
   },
   text: {
@@ -32,20 +34,16 @@ export default {
   btn: {
     backgroundColor: '#6EA23C',
     margin: ' auto',
-    width: '327px',
-    height: ' 65px',
+    padding: '1.3em 1.8em',
+    width: '90%',
+    maxWidth: '20em',
     borderRadius: '25px',
-    boxShadow: '0px 3px 6px #2C28281C'
-  },
-  formButton: {
-    // background: '#6EA23C 0% 0% no-repeat padding-box',
-    padding: '0.5em 1.8em',
-
-    cursor: 'pointer',
-    margin: '0 auto'
+    boxShadow: '0px 3px 6px #2C28281C',
+    textTransform: 'uppercase',
+    marginTop: '3em',
+    fontWeight: '700'
   },
   formButtonText: {
-    color: '#ffffff',
-    margin: 'auto'
+    color: '#ffffff'
   }
 };
