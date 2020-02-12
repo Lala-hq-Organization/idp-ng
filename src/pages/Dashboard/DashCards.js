@@ -58,14 +58,13 @@ const CardBox = styled.div`
   display: grid;
   align-items: center;
   grid-gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13.4em, 1fr));
   margin-bottom: 3em;
 `;
 
 const Card = styled.div`
-  flex: 1 1 17em;
-  min-width: 16em;
-  padding: 1.5em 2em;
+  flex: 1 1 100%;
+  padding: 1.2em 1.8em;
   background: rgb(4, 202, 251);
   background: ${props => props.background};
   color: #fff;
@@ -84,12 +83,12 @@ const Title = styled.h3`
   margin-bottom: 0;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 `;
 
 const Count = styled.p`
   margin-top: 0.2em;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
 `;
 
