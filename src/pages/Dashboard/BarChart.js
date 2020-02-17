@@ -28,6 +28,17 @@ export default function BarChart(props) {
         },
         xaxis: {
           categories: getCategories()
+        },
+        fill: {
+          colors: '#B8C1CC'
+        },
+        title: { text: props.title, align: 'left' },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            endingShape: 'flat',
+            columnWidth: '40%'
+          }
         }
       }}
       series={[
@@ -38,6 +49,7 @@ export default function BarChart(props) {
       ]}
       type="bar"
       width="100%"
+      height="100%"
       style={styles.barChart}
     />
   );
