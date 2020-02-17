@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Box, Form, Text, ResponsiveContext } from 'grommet';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { connect, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 
 import styles from './styles';
@@ -9,8 +11,6 @@ import layoutStyles from '../layout/styles';
 import Input from './Input';
 import logo from '../../assets/logo.png';
 import loginAction from './login.action';
-import { connect, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import request from '../../request';
 import FormError from '../error/index';
 import { clearErrorsAction } from '../data/data.action';
@@ -26,7 +26,7 @@ const App = props => {
     <ResponsiveContext.Consumer>
       {size => {
         return (
-          <Box style={styles.loginContainer} pad="large">
+          <Box style={styles.loginContainer}>
             <Box style={styles.formContainer}>
               <Box direction="row" justify="center">
                 <Box style={{ ...layoutStyles.logo, ...styles.logo }}>
@@ -108,7 +108,8 @@ const App = props => {
                           className="btn"
                           style={{
                             ...styles.btn,
-                            ...styles.formButtonText
+                            ...styles.formButtonText,
+                            width: size === 'xsmall' ? '80%' : '90%'
                           }}
                           onClick={loading ? null : formik.handleSubmit}
                         >
