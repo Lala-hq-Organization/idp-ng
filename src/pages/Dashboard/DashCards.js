@@ -58,13 +58,13 @@ const CardBox = styled.div`
   display: grid;
   align-items: center;
   grid-gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(13.4em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
   margin-bottom: 3em;
 `;
 
 const Card = styled.div`
   flex: 1 1 100%;
-  padding: 1.2em 1.8em;
+  padding: 1em 1.22em;
   background: rgb(4, 202, 251);
   background: ${props => props.background};
   color: #fff;

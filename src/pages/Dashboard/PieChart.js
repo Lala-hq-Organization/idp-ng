@@ -16,7 +16,11 @@ export default function PieChart(props) {
 
   return (
     <Chart
-      options={{ ...options, labels: props.labels }}
+      options={{
+        ...options,
+        labels: props.labels,
+        title: { text: props.title, align: 'center', style: { margin: 20 } }
+      }}
       series={getSeries()}
       type="donut"
       style={styles.barChart}
@@ -26,22 +30,26 @@ export default function PieChart(props) {
 
 const options = {
   chart: {
-    type: 'donut'
+    type: 'donut',
+    width: '100%',
+    height: '100%'
+  },
+  legend: {
+    position: 'right',
+    fontSize: '16px',
+    horizontalAlign: 'right'
   },
   dataLabels: {
     enabled: false
   },
   responsive: [
     {
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: '100%'
-        },
-        legend: {
-          position: 'bottom'
-        }
-      }
+      breakpoint: 480
     }
-  ]
+  ],
+  plotOptions: {
+    pie: {
+      customScale: 1
+    }
+  }
 };

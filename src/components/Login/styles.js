@@ -5,7 +5,8 @@ export default {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh'
+    height: '100vh',
+    padding: '3em'
   },
   formContainer: { width: '100%', maxWidth: '27em' },
   form: {
@@ -40,7 +41,7 @@ export default {
     borderRadius: '25px',
     boxShadow: '0px 3px 6px #2C28281C',
     textTransform: 'uppercase',
-    marginTop: '3em',
+    marginTop: '2.5em',
     fontWeight: '700'
   },
   formButtonText: {

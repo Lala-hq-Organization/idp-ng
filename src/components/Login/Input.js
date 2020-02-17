@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { Box, TextInput, Button } from 'grommet';
+import React, { useState, useContext } from 'react';
+import { Box, TextInput, Button, ResponsiveContext } from 'grommet';
 import { View, Hide } from 'grommet-icons';
 
 import styles from './styles';
 
 const App = props => {
   const [reveal, setReveal] = useState(false);
+  const size = useContext(ResponsiveContext);
 
   let passwordType = reveal ? 'text' : 'password';
 
@@ -14,9 +15,11 @@ const App = props => {
       <Box
         direction="row"
         width="100%"
-        margin="1.5em auto"
         pad="small"
-        style={{ border: '1px solid #9FDBD2' }}
+        style={{
+          border: '1px solid #9FDBD2',
+          margin: size === 'xsmall' ? '0.5em auto' : '1.5em auto'
+        }}
       >
         <TextInput
           plain

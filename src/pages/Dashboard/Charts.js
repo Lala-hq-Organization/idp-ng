@@ -10,7 +10,7 @@ export default function Charts(props) {
   return (
     <Box className="dash-chart" direction="row" justify="between">
       <Box className="bar-chart" width="68%">
-        <BarChart dashboard={dashboard} />
+        <BarChart dashboard={dashboard} title="States (IDP Camp)" />
       </Box>
       <Box
         className="pie-chart-holder"
@@ -19,10 +19,18 @@ export default function Charts(props) {
         justify="between"
       >
         <Box className="pie-chart" height="48%">
-          <PieChart dashboard={dashboard} labels={['single', 'married']} />
+          <PieChart
+            dashboard={dashboard}
+            labels={['single', 'married']}
+            title="Marital status"
+          />
         </Box>
         <Box className="pie-chart" height="48%">
-          <PieChart dashboard={dashboard} labels={['male', 'female']} />
+          <PieChart
+            dashboard={dashboard}
+            labels={['male', 'female']}
+            title="Gender"
+          />
         </Box>
       </Box>
     </Box>
