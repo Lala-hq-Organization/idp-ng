@@ -62,7 +62,7 @@ export const columns = [
     property: 'more_avatar',
     header: '',
     render: () => (
-      <diV
+      <div
         style={{
           height: '30px',
           width: '30px',
@@ -76,7 +76,7 @@ export const columns = [
           color="#172B4D"
           style={{ cursor: 'pointer', margin: '10%' }}
         />
-      </diV>
+      </div>
     )
   }
 ];
@@ -223,7 +223,7 @@ export const individualColumns = [
     property: 'more_avatar',
     header: '',
     render: () => (
-      <diV
+      <div
         style={{
           height: '30px',
           width: '30px',
@@ -237,7 +237,7 @@ export const individualColumns = [
           color="#172B4D"
           style={{ cursor: 'pointer', margin: '10%' }}
         />
-      </diV>
+      </div>
     )
   }
 ];
