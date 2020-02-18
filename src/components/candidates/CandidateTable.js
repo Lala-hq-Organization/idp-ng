@@ -48,7 +48,7 @@ const Candidates = props => {
   };
 
   const hideIndividual = () => {
-    setState({ ...state, showTable: false, displayFilters: false });
+    setState({ ...state, showTable: false });
   };
 
   const handleFilterDisplay = () => {
@@ -85,19 +85,16 @@ const Candidates = props => {
             pageNum={state.pageNum}
           />
         ) : (
-          state.showTable && (
-            <Filter
-              align="center"
-              justify="start"
-              pad="large"
-              style={styles.filter}
-              handleFilterDisplay={handleFilterDisplay}
-            />
-          )
+          <Filter
+            align="center"
+            justify="start"
+            pad="large"
+            style={styles.filter}
+            handleFilterDisplay={handleFilterDisplay}
+          />
         )}
         <Box
-          style={styles.table}
-          margin={{ top: state.showTable === false ? 'large' : null }}
+          style={{ ...styles.table, width: !state.showTable ? '70%' : '100%' }}
         >
           {size === 'large' || size === 'medium' ? (
             <Box
@@ -113,7 +110,8 @@ const Candidates = props => {
                     background: state.showTable
                       ? '#E8850F 0% 0% no-repeat padding-box'
                       : '',
-                    color: state.showTable ? '#fff' : '#9A50C8'
+                    color: state.showTable ? '#fff' : '#9A50C8',
+                    border: !state.showTable ? '1px solid #7764E4' : null
                   }}
                   handleButton={showIndividual}
                   textStyle={styles.individualsText}
@@ -125,7 +123,8 @@ const Candidates = props => {
                     background: !state.showTable
                       ? '#E8850F 0% 0% no-repeat padding-box'
                       : '',
-                    color: !state.showTable ? '#fff' : '#9A50C8'
+                    color: !state.showTable ? '#fff' : '#9A50C8',
+                    border: state.showTable ? '1px solid #7764E4' : null
                   }}
                   handleButton={hideIndividual}
                   textStyle={styles.familyText}

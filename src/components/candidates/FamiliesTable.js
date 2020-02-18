@@ -30,6 +30,7 @@ const Candidates = props => {
         State: item.state,
         Number: item.total_number,
         Children: item.children,
+
         id: item._id
       }));
     }
@@ -62,20 +63,24 @@ const Candidates = props => {
           data={familiesData()}
           pad={{
             body: {
-              horizontal: 'large',
-              vertical: 'medium'
+              horizontal: 'medium',
+              vertical: 'small'
             },
             header: {
-              horizontal: 'large',
-              vertical: 'xsmall'
+              horizontal: 'medium',
+              vertical: 'small'
             }
           }}
           background={{
             header: '#F1F3F9',
-            body: ['#F7FAFC', '#FFFFFF'],
+            body: ['#FFFFFF', '#F7FAFC'],
             footer: 'dark-3'
           }}
-          border={{ body: 'bottom' }}
+          border={{
+            header: {
+              color: '#F1F3F9'
+            }
+          }}
           rowProps={{
             Eric: {
               background: 'accent-2',

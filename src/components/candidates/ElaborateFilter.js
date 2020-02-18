@@ -106,17 +106,6 @@ const App = props => {
           text="Go"
         />
       </CardBox>
-      {/* <Box>
-        <Grid
-          columns={{
-            count: 4,
-            size: 'auto'
-          }}
-          gap="small"
-        >
-          
-        </Grid>
-      </Box> */}
     </Box>
   );
 };

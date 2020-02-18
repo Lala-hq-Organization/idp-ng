@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Box, Text } from 'grommet';
+import { MoreVertical } from 'grommet-icons';
 import styles from './styles';
 
 export const Avatar = props => (
@@ -55,6 +56,27 @@ export const columns = [
       <Text size="small" color="#8898AA">
         CHILDREN
       </Text>
+    )
+  },
+  {
+    property: 'more_avatar',
+    header: '',
+    render: () => (
+      <div
+        style={{
+          height: '30px',
+          width: '30px',
+          boxShadow: '0px 3px 6px #2C28281C',
+          borderRadius: '50%',
+          display: 'inline-block'
+        }}
+      >
+        <MoreVertical
+          size="80%"
+          color="#172B4D"
+          style={{ cursor: 'pointer', margin: '10%' }}
+        />
+      </div>
     )
   }
 ];
@@ -195,6 +217,27 @@ export const individualColumns = [
       <Text size="small" color="#8898AA">
         OCCUPATION
       </Text>
+    )
+  },
+  {
+    property: 'more_avatar',
+    header: '',
+    render: () => (
+      <div
+        style={{
+          height: '30px',
+          width: '30px',
+          boxShadow: '0px 3px 6px #2C28281C',
+          borderRadius: '50%',
+          display: 'inline-block'
+        }}
+      >
+        <MoreVertical
+          size="80%"
+          color="#172B4D"
+          style={{ cursor: 'pointer', margin: '10%' }}
+        />
+      </div>
     )
   }
 ];
