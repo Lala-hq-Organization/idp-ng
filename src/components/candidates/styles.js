@@ -12,7 +12,8 @@ export default {
     flexDirection: 'column',
     borderRadius: '0.7rem',
     boxShadow: '0px 3px 6px #2C28281C',
-    width: '100%'
+    width: '100%',
+    color: '#172B4D'
   },
   header: {
     display: 'flex',
@@ -22,7 +23,8 @@ export default {
   tableHead: { height: '5rem', backgroundColor: 'red', width: '90%' },
   tableStyle: {
     fontFamily: 'Roboto',
-    fontSize: '1rem'
+    fontSize: '1rem',
+    color: '#172B4D'
   },
   profile: {
     display: 'flex',
@@ -125,7 +127,7 @@ export default {
     margin: 'auto'
   },
   pageBox: {
-    padding: '0.3em 0em',
+    padding: '0.3em 1em',
     flexDirection: 'row',
     alignItems: 'center'
   }
