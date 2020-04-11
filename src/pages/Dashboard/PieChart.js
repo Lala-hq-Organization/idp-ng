@@ -6,12 +6,13 @@ import { styles } from './styles';
 export default function PieChart(props) {
   const { dashboard } = props;
 
+  if (dashboard.length === 0) {
+    return 'Loading...';
+  }
+
   const getSeries = () => {
-    if (dashboard.length > 0) {
-      let x = dashboard[6].maritalStatus.map(item => item.total);
-      return x;
-    }
-    return [0, 0];
+    let x = dashboard[6].maritalStatus.map(item => item.total);
+    return x;
   };
 
   return (
@@ -44,7 +45,14 @@ const options = {
   },
   responsive: [
     {
-      breakpoint: 480
+      breakpoint: 480,
+      options: {
+        legend: {
+          position: 'right',
+          fontSize: '16px',
+          horizontalAlign: 'right'
+        }
+      }
     }
   ],
   plotOptions: {

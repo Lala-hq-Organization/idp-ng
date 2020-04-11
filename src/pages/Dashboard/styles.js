@@ -13,6 +13,6 @@ export const styles = {
     boxShadow: '0px 3px 6px #2C28281C',
     borderRadius: '10px',
     padding: '1em',
-    height: '100%'
+    flex: '1 1 100%'
   }
 };

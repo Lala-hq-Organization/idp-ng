@@ -6,11 +6,13 @@ import { styles } from './styles';
 export default function BarChart(props) {
   const { dashboard } = props;
 
+  if (dashboard.length === 0) {
+    return 'Loading...';
+  }
+
   const getCategories = () => {
-    if (dashboard.length > 0) {
-      let x = dashboard[4].states.map(item => item.state);
-      return x;
-    }
+    let x = dashboard[4].states.map(item => item.state);
+    return x;
   };
 
   const getData = () => {
@@ -24,10 +26,16 @@ export default function BarChart(props) {
     <Chart
       options={{
         chart: {
-          id: 'basic-bar'
+          id: 'basic-bar',
+          width: '100%',
+          height: '100%'
         },
         xaxis: {
           categories: getCategories()
+        },
+        yaxis: {
+          show: true,
+          showAlways: true
         },
         fill: {
           colors: '#B8C1CC'

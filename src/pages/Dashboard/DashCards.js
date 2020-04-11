@@ -5,6 +5,10 @@ import { LineChart, BarChart } from 'grommet-icons';
 export default function DashCard(props) {
   const { dashboard } = props;
 
+  if (dashboard.length === 0) {
+    return 'Loading...';
+  }
+
   return (
     <CardBox>
       <Card background="linear-gradient(150deg, rgba(4, 202, 251, 1) 0%, rgba(54, 128, 215, 1) 90%)">
@@ -59,7 +63,8 @@ const CardBox = styled.div`
   align-items: center;
   grid-gap: 1em;
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-  margin-bottom: 3em;
+  margin-bottom: 7em;
+  flex: 1 1 20%;
 `;
 
 const Card = styled.div`
