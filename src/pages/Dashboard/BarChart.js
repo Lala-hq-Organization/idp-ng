@@ -6,6 +6,10 @@ import { styles } from './styles';
 export default function BarChart(props) {
   const { dashboard } = props;
 
+  if (dashboard.length === 0) {
+    return 'Loading...';
+  }
+
   const getCategories = () => {
     if (dashboard.length > 0) {
       let x = dashboard[4].states.map(item => item.state);
